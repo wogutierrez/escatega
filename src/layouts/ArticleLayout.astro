@@ -1,0 +1,29 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={`${frontmatter.title} | Escatega`}>
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <p class="text-uppercase fw-bold mb-2 text-primary">Published {frontmatter.pubDate}</p>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">{frontmatter.title}</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+        <em>{frontmatter.description}</em>
+      </p>
+      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>
+    </div>
+  </header>
+
+  <article class="py-5 bg-white">
+    <div class="container" style="max-width: 800px;">
+      <div class="fs-5 text-dark lh-lg">
+        <slot /> <!-- The actual markdown body goes here -->
+      </div>
+      
+      <hr class="my-5" />
+      <div class="text-center">
+        <a href="/articles" class="btn btn-outline-dark rounded-pill px-4">← Back to Articles</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

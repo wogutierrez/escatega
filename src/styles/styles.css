@@ -1,0 +1,60 @@
+/* Import Modern Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto:wght@400;500&display=swap");
+
+:root {
+  /* Colors carefully mapped from escatega-logo.png */
+  --eg-orange: #ff6b35; /* Primary Accent from "Tega" */
+  --eg-black: #111111; /* Deep Brand Black from "Esca" and icon */
+  --eg-gray: #555555; /* Slate Gray from taglines */
+  --eg-light: #f8f9fa; /* Background contrast */
+
+  --bs-body-font-family: "Roboto", sans-serif;
+  --bs-heading-font-family: "Inter", sans-serif;
+}
+
+/* Custom Element Style Overrides */
+.text-primary,
+.btn-primary {
+  color: var(--eg-orange) !important;
+}
+
+.btn-primary {
+  background-color: var(--eg-orange) !important;
+  border-color: var(--eg-orange) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e0531f !important;
+  border-color: #e0531f !important;
+}
+
+.bg-dark {
+  background-color: var(--eg-black) !important;
+}
+
+.text-secondary {
+  color: var(--eg-gray) !important;
+}
+
+.navbar-brand img {
+  max-height: 80px;
+}
+
+.hero-section {
+  padding: 100px 0;
+}
+
+.feature-card {
+  border: 100% transparent;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
