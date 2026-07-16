@@ -1,46 +1,45 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Query all markdown files in your posts directory[cite: 2]
-const posts = await Astro.glob('../../content/posts/*.md');[cite: 2]
-// Sort articles newest first[cite: 2]
-const sortedPosts = posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));[cite: 2]
+// Query all markdown files in your posts directory
+const posts = await Astro.glob('../../content/posts/*.md');
+// Sort articles newest first
+const sortedPosts = posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
 ---
-<BaseLayout title="Articles & Insights | Escatega">[cite: 2]
-  <header class="py-5 bg-light border-bottom">[cite: 2]
-    <div class="container py-4 text-center">[cite: 2]
-      <p class="text-uppercase fw-bold mb-2 text-primary">Escatega Insights</p>[cite: 2]
-      <h1 class="display-4 fw-extrabold text-dark mb-3">Articles & Strategies</h1>[cite: 2]
-      <p class="lead text-secondary mx-auto" style="max-width: 600px">[cite: 2]
-        Practical guidelines on technology, automation, systems integration, and professional branding.[cite: 2]
-      </p>[cite: 2]
-      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>[cite: 2]
-    </div>[cite: 2]
-  </header>[cite: 2]
+<BaseLayout title="Articles & Insights | Escatega">
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <p class="text-uppercase fw-bold mb-2 text-primary">Escatega Insights</p>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">Articles & Strategies</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 600px">
+        Practical guidelines on technology, automation, systems integration, and professional branding.
+      </p>
+      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>
+    </div>
+  </header>
 
-  <section class="py-5 bg-white">[cite: 2]
-    <div class="container py-4">[cite: 2]
-      <div class="row g-4 justify-content-center">[cite: 2]
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row g-4 justify-content-center">
         {sortedPosts.map((post) => {
           // Extract the filename to use as the ID (e.g., "how-to-learn-ai-skills")
           const id = post.file.split('/').pop().replace('.md', '');
           
           return (
-            <div class="col-md-6 col-lg-4">[cite: 2]
-              <div class="card h-100 feature-card shadow-sm p-4 rounded-4">[cite: 2]
-                <div class="card-body d-flex flex-column">[cite: 2]
-                  <p class="text-uppercase small text-primary fw-bold mb-2">{post.frontmatter.pubDate}</p>[cite: 2]
-                  <h4 class="card-title fw-bold mb-3">{post.frontmatter.title}</h4>[cite: 2]
-                  <p class="card-text text-secondary mb-4">{post.frontmatter.description}</p>[cite: 2]
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 feature-card shadow-sm p-4 rounded-4">
+                <div class="card-body d-flex flex-column">
+                  <p class="text-uppercase small text-primary fw-bold mb-2">{post.frontmatter.pubDate}</p>
+                  <h4 class="card-title fw-bold mb-3">{post.frontmatter.title}</h4>
+                  <p class="card-text text-secondary mb-4">{post.frontmatter.description}</p>
                   
-                  {/* Point to /articles/instead of /article/ and use the extracted id */}
                   <a href={`/articles/${id}`} class="btn btn-outline-dark mt-auto rounded-pill w-100">Read Article</a>
-                </div>[cite: 2]
-              </div>[cite: 2]
-            </div>[cite: 2]
+                </div>
+              </div>
+            </div>
           );
         })}
-      </div>[cite: 2]
-    </div>[cite: 2]
-  </section>[cite: 2]
-</BaseLayout>[cite: 2]
+      </div>
+    </div>
+  </section>
+</BaseLayout>
