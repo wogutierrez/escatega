@@ -1,6 +1,11 @@
 ---
+// 1. We import the stylesheet here in the frontmatter. 
+// Astro automatically recognizes this and applies it globally to all pages using this layout!
+import '../styles/styles.css';
+
 const { title } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
