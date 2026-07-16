@@ -1,45 +1,24 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
-// Query all markdown files in your posts directory
-const posts = await Astro.glob('../../content/posts/*.md');
-// Sort articles newest first
-const sortedPosts = posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
+// Use Astro.glob to find all posts in src/content/posts/
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../content/posts/*.md');
+  
+  return posts.map(post => {
+    // Extract the filename from the file path (e.g., "how-to-learn-ai-skills")
+    const id = post.file.split('/').pop().replace('.md', '');
+    return {
+      params: { id },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+// Directly grab the default exported Content component from the glob object
+const Content = post.Content; 
 ---
-<BaseLayout title="Articles & Insights | Escatega">
-  <header class="py-5 bg-light border-bottom">
-    <div class="container py-4 text-center">
-      <p class="text-uppercase fw-bold mb-2 text-primary">Escatega Insights</p>
-      <h1 class="display-4 fw-extrabold text-dark mb-3">Articles & Strategies</h1>
-      <p class="lead text-secondary mx-auto" style="max-width: 600px">
-        Practical guidelines on technology, automation, systems integration, and professional branding.
-      </p>
-      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>
-    </div>
-  </header>
-
-  <section class="py-5 bg-white">
-    <div class="container py-4">
-      <div class="row g-4 justify-content-center">
-        {sortedPosts.map((post) => {
-          // Extract the filename to use as the ID (e.g., "how-to-learn-ai-skills")
-          const id = post.file.split('/').pop().replace('.md', '');
-          
-          return (
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100 feature-card shadow-sm p-4 rounded-4">
-                <div class="card-body d-flex flex-column">
-                  <p class="text-uppercase small text-primary fw-bold mb-2">{post.frontmatter.pubDate}</p>
-                  <h4 class="card-title fw-bold mb-3">{post.frontmatter.title}</h4>
-                  <p class="card-text text-secondary mb-4">{post.frontmatter.description}</p>
-                  
-                  <a href={`/articles/${id}`} class="btn btn-outline-dark mt-auto rounded-pill w-100">Read Article</a>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<ArticleLayout frontmatter={post.frontmatter}>
+  <Content />
+</ArticleLayout>
