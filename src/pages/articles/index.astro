@@ -1,24 +1,24 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
-// Use Astro.glob to find all posts in src/content/posts/
-export async function getStaticPaths() {
-  const posts = await Astro.glob('../../content/posts/*.md');
-  
-  return posts.map(post => {
-    // Extract the filename from the file path (e.g., "how-to-learn-ai-skills")
-    const id = post.file.split('/').pop().replace('.md', '');
-    return {
-      params: { id },
-      props: { post },
-    };
-  });
-}
-
-const { post } = Astro.props;
-// Directly grab the default exported Content component from the glob object
-const Content = post.Content; 
+// 1. Fetch all of your markdown posts
+const posts = await Astro.glob('../../content/posts/*.md');
 ---
-<ArticleLayout frontmatter={post.frontmatter}>
-  <Content />
+
+<ArticleLayout frontmatter={{ title: "Articles" }}>
+  <h1>All Articles</h1>
+  <ul>
+    {posts.map(post => {
+      // 2. Format the URL slug from the filename
+      const slug = post.file.split('/').pop().replace('.md', '');
+      
+      return (
+        <li>
+          <a href={`/articles/${slug}`}>
+            {post.frontmatter.title || 'Untitled Article'}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
 </ArticleLayout>
