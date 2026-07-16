@@ -28,7 +28,7 @@ const sortedPosts = posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Dat
                 <p class="text-uppercase small text-primary fw-bold mb-2">{post.frontmatter.pubDate}</p>
                 <h4 class="card-title fw-bold mb-3">{post.frontmatter.title}</h4>
                 <p class="card-text text-secondary mb-4">{post.frontmatter.description}</p>
-                <a href={post.url} class="btn btn-outline-dark mt-auto rounded-pill w-100">Read Article</a>
+                <a href={`/posts/${post.slug}`} class="btn btn-outline-dark mt-auto rounded-pill w-100">Read Article</a>
               </div>
             </div>
           </div>
