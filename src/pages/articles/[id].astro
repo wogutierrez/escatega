@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+// 1. Generate paths for all your markdown files in src/content/posts
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+// 2. Fetch the post and its compiled HTML content
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<!-- 3. Render the content wrapped inside your existing ArticleLayout -->
+<ArticleLayout frontmatter={post.data}>
+  <Content />
+</ArticleLayout>
