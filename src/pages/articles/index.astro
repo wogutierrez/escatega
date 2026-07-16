@@ -6,17 +6,19 @@ const posts = await Astro.glob('../../content/posts/*.md');
 ---
 
 <BaseLayout title="Articles | Escatega">
-  <header class="py-5 bg-light border-bottom">
+  <!-- Header Section -->
+  <header class="py-5 bg-white border-bottom">
     <div class="container py-5 text-center">
       <h1 class="display-4 fw-extrabold text-dark mb-3">Our Articles</h1>
       <p class="lead text-secondary mx-auto" style="max-width: 600px;">
         Insights, guides, and practical tips on digital presence, tech, and AI skills.
       </p>
-      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>
+      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: var(--eg-orange)"></div>
     </div>
   </header>
 
-  <section class="py-5 bg-white">
+  <!-- Articles Grid Section (Flipped to bg-light for beautiful contrast) -->
+  <section class="py-5 bg-light">
     <div class="container" style="max-width: 900px;">
       <div class="row g-4">
         {posts.map(post => {
@@ -24,21 +26,32 @@ const posts = await Astro.glob('../../content/posts/*.md');
           
           return (
             <div class="col-md-6">
-              <div class="card h-100 feature-card p-4 shadow-sm border-0 bg-light">
+              {/* Pure white card with a subtle top border using your brand orange */}
+              <div 
+                class="card h-100 feature-card p-4 shadow-sm border-0 bg-white" 
+                style="border-top: 4px solid var(--eg-orange) !important;"
+              >
                 <div class="card-body d-flex flex-column justify-content-between">
                   <div>
+                    {/* Date using brand orange via text-primary */}
                     <span class="text-uppercase fw-bold text-primary small d-block mb-2">
                       {post.frontmatter.pubDate || 'Blog Post'}
                     </span>
+                    
+                    {/* Title */}
                     <h3 class="h4 fw-bold text-dark mb-3">
                       {post.frontmatter.title}
                     </h3>
-                    <p class="text-secondary small line-clamp">
+                    
+                    {/* Description */}
+                    <p class="text-secondary small mb-0">
                       {post.frontmatter.description || 'Read our latest insights...'}
                     </p>
                   </div>
+                  
+                  {/* Button using your global btn-primary style */}
                   <div class="mt-4">
-                    <a href={`/articles/${slug}`} class="btn btn-outline-dark rounded-pill btn-sm px-4">
+                    <a href={`/articles/${slug}`} class="btn btn-primary rounded-pill btn-sm px-4">
                       Read Article →
                     </a>
                   </div>
@@ -51,13 +64,3 @@ const posts = await Astro.glob('../../content/posts/*.md');
     </div>
   </section>
 </BaseLayout>
-
-<style>
-  /* Optional helper to limit description text to 3 lines */
-  .line-clamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;  
-    overflow: hidden;
-  }
-</style>
