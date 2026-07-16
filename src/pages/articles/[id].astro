@@ -6,7 +6,7 @@ export async function getStaticPaths() {
   const posts = await Astro.glob('../../content/posts/*.md');
   
   return posts.map(post => {
-    // Extract the filename from the file path (e.g., "how-to-learn-ai-skills")
+    // Extract the filename from the file path
     const id = post.file.split('/').pop().replace('.md', '');
     return {
       params: { id },
@@ -15,8 +15,11 @@ export async function getStaticPaths() {
   });
 }
 
+// 1. Get the post from props
 const { post } = Astro.props;
-const { Content } = await post.compiledContent(); 
+
+// 2. Extract the Content component directly from the post object (NO await, NO parentheses)
+const Content = post.Content; 
 ---
 <ArticleLayout frontmatter={post.frontmatter}>
   <Content />
