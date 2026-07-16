@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/MarkdownPostLayout.astro'
+layout: '../../layouts/ArticleLayout.astro'
 title: 'How to Learn AI Skills: A Practical Guide for Beginners'
 pubDate: 2026-07-16
 description: 'A step-by-step roadmap to learning artificial intelligence skills, even if you do not have a technical background.'
@@ -42,3 +42,5 @@ If you want to take your skills to the next level and build custom AI applicatio
 The best way to learn AI is by **doing**. Pick a small, boring task in your daily life—like summarizing PDFs, organizing emails, or scheduling—and try to automate or improve it using an AI tool today.
 
 For more hands-on tutorials and guides, stay tuned to our resources page here at [Escatega](https://escatega.com).
+
+UPDATED
