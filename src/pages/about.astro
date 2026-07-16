@@ -1,18 +1,54 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+
 <BaseLayout title="About Us | Escatega - Tech Mentorship & Solutions">
   
   <!-- ABOUT HERO SECTION -->
   <header class="py-5 bg-light border-bottom">
-     <!-- Keep your inner hero html code untouched -->
+    <div class="container py-5 text-center">
+      <h1 class="display-4 fw-extrabold text-dark mb-3">Our Story</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+        We help professionals and businesses confidently navigate the changing tech landscape with reliable mentoring and strategic solutions.
+      </p>
+    </div>
   </header>
 
   <!-- ORIGIN SECTION -->
   <section class="py-5 bg-white">
-     <!-- Keep your inner origin html code untouched -->
-  </section>
+    <div class="container py-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="text-uppercase fw-bold text-primary" style="color: var(--eg-orange) !important;">Who We Are</span>
+          <h2 class="fw-bold text-dark mt-2 mb-4">Founded on Integrity and Expertise</h2>
+          <p class="text-secondary mb-3">
+            At Escatega, we believe that technology should be an empowering helper, not a source of stress. We bridge the gap between complex modern tech systems and practical, daily business operations.
+          </p>
+          <p class="text-secondary">
+            Built on a foundation of Christian values, we hold ourselves to the highest standards of honesty, direct communication, and reliable execution in everything we do.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 bg-light border rounded-4">
+            <h3 class="h4 fw-bold mb-4">Our Leadership</h3>
+            
+            <div class="mb-4">
+              <h4 class="h6 fw-bold text-dark mb-1">William — Systems & Technology</h4>
+              <p class="text-secondary small">
+                With over 20 years as a senior systems administrator for international organizations, William ensures your digital foundation is highly secure, fast, and completely reliable.
+              </p>
+            </div>
 
-  <!-- Rest of your original about content... -->
+            <div>
+              <h4 class="h6 fw-bold text-dark mb-1">Alan — Strategy & Operations</h4>
+              <p class="text-secondary small">
+                As an experienced entrepreneur who has successfully run multiple companies, Alan understands the real-world operational challenges businesses face every day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </BaseLayout>
