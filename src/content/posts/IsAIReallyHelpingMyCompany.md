@@ -63,4 +63,4 @@ AI thrives on repetitive, well-defined, and time-consuming tasks[span_23](start_
 
 The goal was never just to use AI[span_28](start_span)[span_28](end_span). It is to gain real value from it[span_29](start_span)[span_29](end_span).
 
-*Is your organization getting a true return on its AI investment? Contact **eScatega** today to schedule an AI Enablement Workshop[span_30](start_span)[span_30](end_span).*
+*Is your organization getting a true return on its AI investment? Contact **eScatega** today to schedule an AI Enablement Workshop[span_30](start_span)[span_30](end_span).* 
