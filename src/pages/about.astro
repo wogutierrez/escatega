@@ -1,20 +1,25 @@
 ---
+// src/pages/about.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About Us | Escatega - Tech Mentorship & Solutions">
+<BaseLayout title="About & Contact Us | Escatega - Tech Mentorship & Solutions">
   
-  <!-- ABOUT HERO SECTION -->
+  <!-- HERO SECTION (Merged from About Page) -->
   <header class="py-5 bg-light border-bottom">
     <div class="container py-5 text-center">
       <h1 class="display-4 fw-extrabold text-dark mb-3">Our Story</h1>
       <p class="lead text-secondary mx-auto" style="max-width: 700px;">
-        We help professionals and businesses confidently navigate the changing tech landscape with reliable mentoring and strategic solutions.
+        We help professionals and businesses confidently navigate the changing tech landscape with reliable mentoring and strategic solutions.[cite: 2]
       </p>
+      <div
+        class="mx-auto mt-4"
+        style="width: 60px; height: 4px; background-color: #ff6b35"
+      ></div>
     </div>
   </header>
 
-  <!-- ORIGIN SECTION -->
+  <!-- ORIGIN & LEADERSHIP SECTION (From About Page) -->
   <section class="py-5 bg-white">
     <div class="container py-4">
       <div class="row align-items-center g-5">
@@ -22,28 +27,168 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <span class="text-uppercase fw-bold text-primary" style="color: var(--eg-orange) !important;">Who We Are</span>
           <h2 class="fw-bold text-dark mt-2 mb-4">Founded on Integrity and Expertise</h2>
           <p class="text-secondary mb-3">
-            At Escatega, we believe that technology should be an empowering helper, not a source of stress. We bridge the gap between complex modern tech systems and practical, daily business operations.
+            At Escatega, we believe that technology should be an empowering helper, not a source of stress. We bridge the gap between complex modern tech systems and practical, daily business operations.[cite: 2]
           </p>
           <p class="text-secondary">
-            Built on a foundation of Christian values, we hold ourselves to the highest standards of honesty, direct communication, and reliable execution in everything we do.
+            Built on a foundation of Christian values, we hold ourselves to the highest standards of honesty, direct communication, and reliable execution in everything we do.[cite: 2]
           </p>
         </div>
+        
         <div class="col-lg-6">
           <div class="p-4 bg-light border rounded-4">
             <h3 class="h4 fw-bold mb-4">Our Leadership</h3>
             
             <div class="mb-4">
               <h4 class="h6 fw-bold text-dark mb-1">William — Systems & Technology</h4>
-              <p class="text-secondary small">
-                With over 20 years as a senior systems administrator for international organizations, William ensures your digital foundation is highly secure, fast, and completely reliable.
+              <p class="text-secondary small mb-2">
+                With over 20 years as a senior systems administrator for international organizations, William ensures your digital foundation is highly secure, fast, and completely reliable.[cite: 2]
               </p>
+              <!-- LINK TO YOUR NEW VERTICAL BUSINESS CARD PORTAL -->
+              <a href="/ortega" class="text-decoration-none small fw-bold" style="color: var(--eg-orange) !important;">
+                View System Architecture Profile &rarr;
+              </a>
             </div>
 
             <div>
               <h4 class="h6 fw-bold text-dark mb-1">Alan — Strategy & Operations</h4>
               <p class="text-secondary small">
-                As an experienced entrepreneur who has successfully run multiple companies, Alan understands the real-world operational challenges businesses face every day.
+                As an experienced entrepreneur who has successfully run multiple companies, Alan understands the real-world operational challenges businesses face every day.[cite: 2]
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATED CONTACT & PORTAL SECTION (From Contact Page) -->
+  <section id="contact" class="py-5 bg-light border-top">
+    <div class="container py-4">
+      <div class="row g-5">
+        <!-- Contact Form Box -->
+        <div class="col-lg-7">
+          <div class="card p-4 border-0 shadow-sm bg-white rounded-4">
+            <h3 class="fw-bold text-dark mb-4">Send Us a Message</h3>
+
+            <form action="#" method="POST">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="John"
+                      required
+                    />
+                    <label for="firstName">First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder="Doe"
+                      required
+                    />
+                    <label for="lastName">Last Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailAddress"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="emailAddress">Email Address</label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <select
+                    class="form-select"
+                    id="serviceInterest"
+                    aria-label="Specify your interest"
+                    required
+                  >
+                    <option value="" selected disabled>Choose an option...</option>
+                    <option value="mentorship">AI & Tech Mentorship</option>
+                    <option value="automation">Business Automation Solutions</option>
+                    <option value="foundation">The Digital Foundation Package</option>
+                    <option value="other">General Inquiry</option>
+                  </select>
+                  <label for="serviceInterest">What can we help you with?</label>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    id="messageText"
+                    placeholder="Leave a comment here"
+                    style="height: 150px"
+                    required
+                  ></textarea>
+                  <label for="messageText">Tell us about your project or goals</label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 rounded-pill shadow-sm py-3"
+              >
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Partnership Sidebars & Details -->
+        <div class="col-lg-5">
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="fw-bold text-dark mb-3">Why Partner with Escatega?</h3>
+              <p class="text-secondary mb-4">
+                We don’t believe in overly complicated jargon or charging you for setups you don't actually own. Built completely on Christian values and strict integrity, our commitment guarantees clarity and practical results.[cite: 2]
+              </p>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-envelope fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">Corporate Communication</h5>
+                  <p class="text-secondary mb-0">info@escatega.com</p>
+                </div>
+              </div>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-clock fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">Operating Hours</h5>
+                  <p class="text-secondary mb-0">Monday – Friday: 9:00 AM – 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark Callout Block -->
+            <div class="p-4 bg-dark text-white rounded-4 mt-4">
+              <p class="mb-0 small opacity-75">
+                <i class="fa-solid fa-quote-left text-primary me-2"></i>
+                Whether you are a young tech professional trying to land your next break, or an entrepreneur streamlining legacy procedures—we design technology explicitly around your terms.[cite: 2]
+              </p>
+              <p class="mb-0 text-end fw-bold text-primary small mt-2">— William & Alan[cite: 2]</p>
             </div>
           </div>
         </div>
