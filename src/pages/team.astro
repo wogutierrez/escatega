@@ -1,0 +1,82 @@
+---
+// src/pages/team.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Meet the Team | Escatega">
+  
+  <!-- Header Section -->
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <h1 class="display-4 fw-bold text-dark mb-3">Meet the Minds Behind Escatega</h1>
+      <div class="mx-auto my-3" style="width: 60px; height: 4px; background-color: var(--eg-orange)"></div>
+      <p class="lead text-secondary mx-auto" style="max-w: 700px;">
+        Bringing together over 20 years each in complex technology architectures and operational business growth to guide your digital evolution.
+      </p>
+    </div>
+  </header>
+
+  <!-- Team Grid Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-5">
+      <div class="row g-5 justify-content-center">
+        
+        <!-- WILLIAM'S CARD -->
+        <div class="col-lg-5">
+          <div class="card h-100 feature-card shadow-sm p-4 rounded-4 border-0 bg-light">
+            <div class="card-body d-flex flex-column">
+              <div class="mb-3 text-primary">
+                <i class="fa-solid fa-network-wired fa-2x"></i>
+              </div>
+              <h2 class="card-title h3 fw-bold text-dark mb-1">William Ortega</h2>
+              <p class="fw-semibold mb-3" style="color: var(--eg-orange);">Senior Solution Architect</p>
+              
+              <p class="card-text text-secondary mb-4">
+                With a deep background in senior systems administration for international organizations, William specializes in turning complex operational bottlenecks into highly scalable, secure, and resilient infrastructure layouts.
+              </p>
+              
+              <!-- Clean profile routing to your dedicated card page -->
+              <a href="/ortega" class="btn btn-outline-dark mt-auto rounded-pill w-100">
+                View Deep Architecture Profile
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALAN'S CARD -->
+        <div class="col-lg-5">
+          <div class="card h-100 feature-card shadow-sm p-4 rounded-4 border-0 bg-light">
+            <div class="card-body d-flex flex-column">
+              <div class="mb-3 text-primary">
+                <i class="fa-solid fa-chart-line fa-2x"></i>
+              </div>
+              <h2 class="card-title h3 fw-bold text-dark mb-1">Alan [Last Name]</h2>
+              <p class="fw-semibold mb-3" style="color: var(--eg-orange);">Operational Business Strategist</p>
+              
+              <p class="card-text text-secondary mb-4">
+                An entrepreneur who has successfully launched and managed multiple operational businesses. Alan brings direct, realistic corporate insight to ensure every technical architecture decision translates to strategic market advantages.
+              </p>
+              
+              <!-- Scalable link for when Alan builds his layout -->
+              <a href="#contact" class="btn btn-outline-dark mt-auto rounded-pill w-100">
+                Consult on Business Operations
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Values Statement -->
+  <section class="py-5 bg-dark text-white text-center">
+    <div class="container py-4" style="max-width: 600px;">
+      <h3 class="fw-bold mb-3">Our Promise</h3>
+      <p class="text-light opacity-75 mb-0">
+        We hold our consulting strictly to the highest standards of clarity, direct communication, and reliable implementation across every engineering milestone.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
