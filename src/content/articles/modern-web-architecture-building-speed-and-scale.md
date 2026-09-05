@@ -6,7 +6,7 @@ description: |-
   2. **Enhanced Security:** Without a live database attached to the public web server, attack vectors are drastically reduced.
   3. **Seamless Git Workflows:** All content updates are tracked with complete version history inside your repository.
 coverImage: /images/uploads/AI.jpeg
-category: AI & Tech
+category: "Get More Clients"
 featured: true
 ---
 
