@@ -7,7 +7,7 @@ const articlesCollection = defineCollection({
     pubDate: z.coerce.date(),
     description: z.string(),
     coverImage: z.string().optional(),
-    category: z.enum(["AI & Tech", "Business Automation", "Digital Foundation", "Mentorship"]).default("AI & Tech"),
+    category: z.enum(['Save Time & Stress','Protect Your Business','Get More Clients']),
     featured: z.boolean().default(false),
   }),
 });
