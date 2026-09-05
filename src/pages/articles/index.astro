@@ -1,8 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Fetch all markdown posts
-const posts = await Astro.glob('../../content/posts/*.md');
+// Fetch all articles from src/content/articles
+const posts = await getCollection('articles');
+
+// Sort posts by date (newest first)
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+);
+
 ---
 
 <BaseLayout title="Articles | Escatega">
@@ -21,45 +28,49 @@ const posts = await Astro.glob('../../content/posts/*.md');
   <section class="py-5 bg-light">
     <div class="container" style="max-width: 900px;">
       <div class="row g-4">
-        {posts.map(post => {
-          const slug = post.file.split('/').pop().replace('.md', '');
+        {sortedPosts.map(post => (
+  <div class="col-md-6">
+    <div 
+      class="card h-100 feature-card p-4 shadow-sm border-0 bg-white" 
+      style="border-top: 4px solid var(--eg-orange) !important;"
+    >
+      <div class="card-body d-flex flex-column justify-content-between">
+        <div>
+          {/* Category & Date */}
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="text-uppercase fw-bold text-primary small">
+              {post.data.category || 'Article'}
+            </span>
+            <small class="text-muted">
+              {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </small>
+          </div>
           
-          return (
-            <div class="col-md-6">
-              {/* Pure white card with a subtle top border using your brand orange */}
-              <div 
-                class="card h-100 feature-card p-4 shadow-sm border-0 bg-white" 
-                style="border-top: 4px solid var(--eg-orange) !important;"
-              >
-                <div class="card-body d-flex flex-column justify-content-between">
-                  <div>
-                    {/* Date using brand orange via text-primary */}
-                    <span class="text-uppercase fw-bold text-primary small d-block mb-2">
-                      {post.frontmatter.pubDate || 'Blog Post'}
-                    </span>
-                    
-                    {/* Title */}
-                    <h3 class="h4 fw-bold text-dark mb-3">
-                      {post.frontmatter.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p class="text-secondary small mb-0">
-                      {post.frontmatter.description || 'Read our latest insights...'}
-                    </p>
-                  </div>
-                  
-                  {/* Button using your global btn-primary style */}
-                  <div class="mt-4">
-                    <a href={`/articles/${slug}`} class="btn btn-primary rounded-pill btn-sm px-4">
-                      Read Article →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+          {/* Title */}
+          <h3 class="h4 fw-bold text-dark mb-3">
+            {post.data.title}
+          </h3>
+          
+          {/* Description */}
+          <p class="text-secondary small mb-0">
+            {post.data.description || 'Read our latest insights...'}
+          </p>
+        </div>
+        
+        {/* Button */}
+        <div class="mt-4">
+          <a href={`/articles/${post.slug}`} class="btn btn-primary rounded-pill btn-sm px-4">
+            Read Article →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
       </div>
     </div>
   </section>

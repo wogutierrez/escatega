@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: wogutierrez/escatega # Replace with your GitHub repository
+  branch: main
+  site_domain: escatega.com
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "src/content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["AI & Tech", "Business Automation", "Digital Foundation", "Mentorship"], default: "AI & Tech" }
+      - { label: "Featured Article", name: "featured", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

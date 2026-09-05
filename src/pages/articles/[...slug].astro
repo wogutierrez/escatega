@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// 1. Generate static routes for all articles in the collection
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// 2. Extract the article entry passed via props
+const { entry } = Astro.props;
+
+// 3. Render the Markdown content into a usable Astro component
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.title} | Escatega`}>
+  <!-- Article Header -->
+  <header class="py-5 bg-white border-bottom">
+    <div class="container text-center" style="max-width: 800px;">
+      <div class="mb-3">
+        <span class="badge bg-primary px-3 py-2 text-uppercase fw-bold">
+          {entry.data.category || 'Article'}
+        </span>
+      </div>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">
+        {entry.data.title}
+      </h1>
+      <p class="text-muted small">
+        Published on {new Date(entry.data.pubDate).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </p>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <article class="py-5 bg-light">
+    <div class="container" style="max-width: 800px;">
+      <div class="card p-4 p-md-5 shadow-sm border-0 bg-white">
+        <div class="article-content">
+          <Content />
+        </div>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="mt-4">
+        <a href="/articles" class="btn btn-outline-secondary rounded-pill btn-sm px-4">
+          &larr; Back to all articles
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
