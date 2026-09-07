@@ -58,3 +58,29 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
+
+/* ==========================================
+   Article Content & Sveltia CMS Image Fix
+   ========================================== */
+
+/* Restrict all images inside article text to fit the container */
+article img,
+.article-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Style image captions/italicized text underneath images */
+article img + em,
+article figcaption {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--eg-gray);
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+}
