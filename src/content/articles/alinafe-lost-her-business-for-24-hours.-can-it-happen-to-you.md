@@ -9,9 +9,9 @@ featured: true
 
 **_Note:_** _Names and minor identifying details have been changed to protect client privacy._
 
-**_A business owner's primary storefront isn't a building anymore—it's right on their screen._**
-
 ![An African woman looks at her phone worried](/images/uploads/African%20Woman%20Looking%20worried%20at%20her%20phone.jpg "She was in panic")
+
+**_A business owner's primary storefront isn't a building anymore—it's right on their screen._**
 
 Look at the physical lock on your office or shop door. It feels safe, doesn't it?
 
