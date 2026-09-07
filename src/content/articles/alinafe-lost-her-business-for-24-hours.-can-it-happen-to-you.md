@@ -37,6 +37,8 @@ Once the AI broke into one of those minor sites and extracted Alinafe's saved lo
 
 ### From there, the nightmare unfolded fast:
 
+![Hacked phone](/images/uploads/Phone%20in%20a%20purshe%20Deviced%20has%20been%20hancked.jpg "Hacked phone")
+
 _Photo: Realizing your core business account is locked out takes less than a minute._
 
 1. **Stolen Customer Contacts:** The hackers downloaded her complete cloud-backed contact list—hundreds of loyal clients built up over years.
