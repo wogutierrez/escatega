@@ -84,3 +84,17 @@ article figcaption {
   margin-top: -1.25rem;
   margin-bottom: 2rem;
 }
+
+/* Force all links inside article content to use Escatega orange */
+article a,
+article a:visited,
+article a:link {
+  color: #ff6b35 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+article a:hover,
+article a:focus {
+  color: #111111 !important;
+}
