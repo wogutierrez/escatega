@@ -2,7 +2,7 @@
 title: Alinafe lost her business for 24 hours. Can it happen to you?
 pubDate: 2026-09-07
 description: Can someone steal the product of your hard work using only the internet?
-coverImage: ''
+coverImage: /images/uploads/African Woman Looking worried at her phone.jpg
 category: Save Time & Stress
 featured: true
 ---
@@ -36,6 +36,8 @@ What she didn't know is how modern cybercriminals operate. Today, hackers use AI
 Once the AI broke into one of those minor sites and extracted Alinafe's saved login, it analyzed the text in seconds, cracked her "clever" pattern, and walked straight into her primary Google account.
 
 ### From there, the nightmare unfolded fast:
+
+![Hacked phone](/images/uploads/Phone%20in%20a%20purshe%20Deviced%20has%20been%20hancked.jpg "Hacked phone")
 
 _Photo: Realizing your core business account is locked out takes less than a minute._
 
