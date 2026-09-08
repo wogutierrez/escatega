@@ -46,6 +46,26 @@ _Photo: Realizing your core business account is locked out takes less than a min
 3. **Poaching Her Clients:** They immediately messaged her top customers: _"We've updated our official business number. Please send all future order deposits to this new number."_
 4. **Complete Lockdown:** Within hours, her primary Google files, photos, client history, and brand identity were entirely compromised.
 
+  <div id="quiz-intro" class="text-center py-3">
+
+    <span class="badge bg-light text-dark fw-semibold mb-2 px-3 py-2 rounded-pill border">Free Tool</span>
+
+    <h3 class="fw-bold text-dark mb-2">General Authentication & Security Assessment</h3>
+
+    <p class="text-secondary small mx-auto mb-4" style="max-width: 580px;">
+
+      Take our free 2-minute security assessment and protect the fruits of your hard work. Identify hidden gaps in your daily login habits before they disrupt your business.
+
+    </p>
+
+    <button id="start-btn" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm fw-semibold">
+
+      Start Free Assessment →
+
+    </button>
+
+  </div>
+
 When Alinafe tried to regain access to her Google account, she hit a total brick wall. The hackers had already changed her recovery phone number and backup details. Proving to an automated tech platform that you are the real owner when someone else holds the recovery keys is a slow, painful process.
 
 > **Sad story short:** Alinafe ended up having to pay a **$500 ransom** just to buy her business identity and client reputation back.
