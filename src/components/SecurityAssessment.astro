@@ -1,0 +1,209 @@
+---
+// src/components/SecurityAssessment.astro
+---
+
+<div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 my-5 bg-white border-top border-4" style="border-top-color: var(--eg-orange, #ff6b35) !important;">
+  
+  <!-- Intro Screen -->
+  <div id="quiz-intro" class="text-center py-3">
+    <span class="badge bg-light text-dark fw-semibold mb-2 px-3 py-2 rounded-pill border">Free Tool</span>
+    <h3 class="fw-bold text-dark mb-2">General Authentication & Security Assessment</h3>
+    <p class="text-secondary small mx-auto mb-4" style="max-width: 580px;">
+      Take our free 2-minute security assessment and protect the fruits of your hard work. Identify hidden gaps in your daily login habits before they disrupt your business.
+    </p>
+    <button id="start-btn" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm fw-semibold">
+      Start Free Assessment →
+    </button>
+  </div>
+
+  <!-- Interactive Quiz Container -->
+  <div id="quiz-box" class="d-none">
+    <!-- Progress Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <small id="question-number" class="text-secondary fw-bold">Question 1 of 4</small>
+      <span id="progress-badge" class="badge bg-dark rounded-pill px-3 py-1">25% Completed</span>
+    </div>
+
+    <!-- Bootstrap Progress Bar -->
+    <div class="progress mb-4" style="height: 6px;">
+      <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%; background-color: var(--eg-orange, #ff6b35);" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <!-- Question Container -->
+    <div id="question-card" class="p-3 p-md-4 bg-light rounded-3 border">
+      <h5 id="question-text" class="fw-bold text-dark mb-4"></h5>
+      <div id="options-container" class="d-grid gap-2"></div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="quiz-results" class="d-none text-center py-2">
+    <div id="status-badge" class="badge fs-6 px-4 py-2 mb-3 rounded-pill"></div>
+    <h4 id="score-headline" class="fw-bold mb-2 text-dark"></h4>
+    <div id="score-display" class="display-3 fw-bold my-2 text-dark"></div>
+    <p id="score-message" class="text-secondary lead mx-auto mb-4" style="max-width: 600px;"></p>
+
+    <!-- Essential Business Security Standard Guide CTA -->
+    <div class="p-4 bg-light rounded-4 border text-center text-md-start mx-auto mt-4" style="max-width: 650px;">
+      <h6 class="fw-bold text-dark mb-2">🛡️ Next Step: Strengthen Your Digital Foundation</h6>
+      <p class="small text-secondary mb-3">
+  High five for checking your security score today! Take the next quick step and download our <strong>free guide</strong>. You'll get simple, clear steps to lock down your WhatsApp and Gmail accounts so they're safe from hackers and prying eyes. Making tech security easy and accessible for everyday business owners is what we do best at Escatega!
+</p>
+      
+      <form id="lead-form" class="d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-md-start">
+        <input type="text" name="contact" required placeholder="Email or WhatsApp Number" class="form-control rounded-pill px-3" />
+        <button type="submit" class="btn btn-primary rounded-pill px-4 text-nowrap fw-semibold">
+          Get Free Guide
+        </button>
+      </form>
+      <div id="form-success" class="small text-success mt-3 d-none">
+        ✓ Thank you! The Essential Business Security Standard Guide is on its way.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const startBtn = document.getElementById('start-btn');
+  const quizIntro = document.getElementById('quiz-intro');
+  const quizBox = document.getElementById('quiz-box');
+  const quizResults = document.getElementById('quiz-results');
+
+  const questionNumber = document.getElementById('question-number');
+  const progressBadge = document.getElementById('progress-badge');
+  const progressBar = document.getElementById('progress-bar');
+  const questionText = document.getElementById('question-text');
+  const optionsContainer = document.getElementById('options-container');
+
+  const badgeEl = document.getElementById('status-badge');
+  const headlineEl = document.getElementById('score-headline');
+  const scoreDisplay = document.getElementById('score-display');
+  const messageEl = document.getElementById('score-message');
+
+  const questions = [
+    {
+      q: "1. How do you manage passwords across your business and work accounts?",
+      options: [
+        { text: "I use a dedicated password manager (e.g., Bitwarden) with unique passwords everywhere", score: 25 },
+        { text: "I store them in browser auto-fill or an encrypted document with a few shared variations", score: 10 },
+        { text: "I memorize or write them down, reusing 1 or 2 core password patterns across services", score: 0 },
+        { text: "I'm not sure how passwords or shared logins are currently being managed", score: 0 }
+      ]
+    },
+    {
+      q: "2. Is Two-Factor Authentication (2FA / MFA) enabled on your primary business logins?",
+      options: [
+        { text: "Yes, enabled everywhere using an Authenticator app or security keys", score: 25 },
+        { text: "Yes, enabled on critical accounts (Email/Banking), mostly via SMS codes", score: 15 },
+        { text: "No, or only on one platform because it feels cumbersome to manage", score: 0 },
+        { text: "I'm not sure if 2FA is active or configured on our primary accounts", score: 0 }
+      ]
+    },
+    {
+      q: "3. How are recovery keys and backup credentials handled if a primary phone is lost?",
+      options: [
+        { text: "Emergency 2FA recovery keys are stored offline in a secure backup location", score: 25 },
+        { text: "They exist in digital notes or screenshots, but aren't systematically backed up", score: 10 },
+        { text: "No documented recovery plan—losing the main device means being locked out", score: 0 },
+        { text: "I'm not sure where our account recovery codes or backup details are saved", score: 0 }
+      ]
+    },
+    {
+      q: "4. How do you handle account access when employees, partners, or devices change?",
+      options: [
+        { text: "Access is managed individually, revoked immediately upon offboarding, and audited", score: 25 },
+        { text: "We change passwords manually when someone leaves, but shared logins exist", score: 10 },
+        { text: "Shared passwords remain active long after team members or helpers leave", score: 0 },
+        { text: "I'm not sure who currently holds active login credentials for our tools", score: 0 }
+      ]
+    }
+  ];
+
+  let currentQ = 0;
+  let totalScore = 0;
+
+  startBtn?.addEventListener('click', () => {
+    quizIntro?.classList.add('d-none');
+    quizBox?.classList.remove('d-none');
+    renderQuestion();
+  });
+
+  function renderQuestion() {
+    if (currentQ < questions.length) {
+      const qData = questions[currentQ];
+      const progressPercent = Math.round(((currentQ + 1) / questions.length) * 100);
+
+      if (questionNumber) questionNumber.textContent = `Question ${currentQ + 1} of ${questions.length}`;
+      if (progressBadge) progressBadge.textContent = `${progressPercent}% Completed`;
+      if (progressBar) {
+        progressBar.style.width = `${progressPercent}%`;
+        progressBar.setAttribute('aria-valuenow', progressPercent.toString());
+      }
+      if (questionText) questionText.textContent = qData.q;
+
+      if (optionsContainer) {
+        optionsContainer.innerHTML = qData.options.map(opt => `
+          <button class="btn btn-outline-dark text-start py-3 px-3 option-btn fw-normal" data-score="${opt.score}">
+            ${opt.text}
+          </button>
+        `).join('');
+
+        document.querySelectorAll('.option-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const target = e.currentTarget as HTMLElement;
+            const score = parseInt(target.getAttribute('data-score') || '0', 10);
+            totalScore += score;
+            currentQ++;
+            renderQuestion();
+          });
+        });
+      }
+    } else {
+      renderResults();
+    }
+  }
+
+  function renderResults() {
+    quizBox?.classList.add('d-none');
+    quizResults?.classList.remove('d-none');
+
+    let status = '';
+    let badgeClass = '';
+    let headline = '';
+    let message = '';
+
+    if (totalScore >= 80) {
+      status = '🟢 Low Risk (Strong Security)';
+      badgeClass = 'bg-success text-white';
+      headline = 'Solid Digital Protection';
+      message = 'Your business has a strong digital foundation! You avoid the major authentication traps that catch most small business owners off guard.';
+    } else if (totalScore >= 50) {
+      status = '🟡 Moderate Risk (Gaps Present)';
+      badgeClass = 'bg-warning text-dark';
+      headline = 'Potential Vulnerabilities Identified';
+      message = 'You have basic protections, but a compromised password pattern or lost phone could disrupt your operations without warning.';
+    } else {
+      status = '🔴 High Risk (Vulnerable)';
+      badgeClass = 'bg-danger text-white';
+      headline = 'Urgent: High Exposure to Risk';
+      message = 'Your business is operating at high risk—relying on habits or unverified access that automated script tools can exploit in seconds. Without changes, you are on the road to becoming the next sad story. Don\'t let that happen.';
+    }
+
+    if (badgeEl) {
+      badgeEl.className = `badge fs-6 px-4 py-2 mb-3 rounded-pill ${badgeClass}`;
+      badgeEl.textContent = status;
+    }
+    if (headlineEl) headlineEl.textContent = headline;
+    if (scoreDisplay) scoreDisplay.textContent = `${totalScore} / 100`;
+    if (messageEl) messageEl.textContent = message;
+  }
+
+  const leadForm = document.getElementById('lead-form') as HTMLFormElement;
+  const formSuccess = document.getElementById('form-success');
+
+  leadForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    leadForm.classList.add('d-none');
+    formSuccess?.classList.remove('d-none');
+  });
+</script>
