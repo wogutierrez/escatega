@@ -46,6 +46,12 @@ _Photo: Realizing your core business account is locked out takes less than a min
 3. **Poaching Her Clients:** They immediately messaged her top customers: _"We've updated our official business number. Please send all future order deposits to this new number."_
 4. **Complete Lockdown:** Within hours, her primary Google files, photos, client history, and brand identity were entirely compromised.
 
+### 🛡️ General Authentication & Security Assessment
+
+**_Take our free 2-minute security assessment and identify hidden gaps before they disrupt your business._**
+
+[**\*\*Start Free Security Assessment\*\***](/security-assessment)
+
 When Alinafe tried to regain access to her Google account, she hit a total brick wall. The hackers had already changed her recovery phone number and backup details. Proving to an automated tech platform that you are the real owner when someone else holds the recovery keys is a slow, painful process.
 
 > **Sad story short:** Alinafe ended up having to pay a **$500 ransom** just to buy her business identity and client reputation back.
@@ -68,4 +74,6 @@ Putting a proper, secure setup in place for your business doesn't have to cost a
 
 At Escatega, we help you set up simple, reliable password vaults and account security tailored to your daily workflow. You keep full control of your business, while we handle the complicated setup so you can focus on making money with complete peace of mind.
 
-If you want to make sure your customer list and business assets are locked tight, let’s have a simple conversation.
+Not sure if this could happen to you? Don't take our word for it—test your setup yourself.
+
+[**Start Free Security Assessment**](/security-assessment)
