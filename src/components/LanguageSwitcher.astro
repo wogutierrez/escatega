@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, getAlternatePageUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const alternateUrl = getAlternatePageUrl(Astro.url);
+const targetLabel = lang === 'en' ? 'Español' : 'English';
+const targetLang = lang === 'en' ? 'es' : 'en';
+---
+
+<a 
+  href={alternateUrl} 
+  class="lang-switcher" 
+  title={`Switch to ${targetLabel}`}
+  aria-label={`Switch to ${targetLabel}`}
+>
+  <span class={lang === 'en' ? 'active-lang' : ''}>EN</span>
+  <span class="divider">|</span>
+  <span class={lang === 'es' ? 'active-lang' : ''}>ES</span>
+</a>
+
+<style>
+  .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: opacity 0.2s ease;
+  }
+
+  .lang-switcher:hover {
+    opacity: 0.8;
+  }
+
+  .active-lang {
+    color: #0066cc; /* Adjust to match your Escatega primary brand color */
+    text-decoration: underline;
+  }
+
+  .divider {
+    opacity: 0.4;
+  }
+</style>
