@@ -1,17 +1,23 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
+
 <footer class="bg-dark text-white border-top border-secondary py-4">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-        <span class="small opacity-50">&copy; 2026 Escatega. All rights reserved.</span>
+        <span class="small opacity-50">&copy; 2026 Escatega. {t('footer.rightsReserved')}</span>
       </div>
       <div class="col-md-6 text-center text-md-end">
-        <a href="/" class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">Home</a>
-        <a href="/about" class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">About Us</a>
-        <a href="/articles" class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">Articles</a>
-        <a href="/contact" class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">Contact</a>
-        <a href="/ortega" class="text-secondary text-decoration-none">William Ortega</a>
+        <a href={translatePath('/')} class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">{t('nav.home')}</a>
+        <a href={translatePath('/about')} class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">{t('nav.about')}</a>
+        <a href={translatePath('/articles')} class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">{t('nav.articles')}</a>
+        <a href={translatePath('/contact')} class="text-white mx-2 small text-decoration-none opacity-75 hover-opacity-100">{t('nav.contact')}</a>
+        <a href={translatePath('/ortega')} class="text-secondary text-decoration-none">William Ortega</a>
       </div>
     </div>
   </div>
