@@ -1,0 +1,324 @@
+---
+// src/pages/es/about.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Nosotros | Escatega - Mentoría Tech y Soluciones">
+  <!-- HERO SECTION -->
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <p class="text-uppercase fw-bold mb-2 text-primary">Nuestra Historia</p>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">Escatega</h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+        Potenciamos tu éxito a través de la tecnología y una visión empresarial práctica. Ayudamos a profesionales y empresas a navegar con confianza el cambiante panorama tecnológico.
+      </p>
+      <div
+        class="mx-auto mt-4"
+        style="width: 60px; height: 4px; background-color: #ff6b35"
+      ></div>
+    </div>
+  </header>
+
+  <!-- ORIGIN & OVERVIEW SECTION -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="text-uppercase fw-bold text-primary" style="color: var(--eg-orange) !important;">Quiénes Somos</span>
+          <h2 class="fw-bold text-dark mt-2 mb-4">Fundados sobre la Integridad y la Experiencia</h2>
+          <p class="lead text-dark fs-4">
+            Escatega fue fundada por los primos
+            <strong>William Ortega</strong> y <strong>Alan Carcamo</strong>,
+            quienes combinan más de cuatro décadas de experiencia en tecnología y
+            negocios. Nuestro nombre representa nuestra misión:
+            <strong>Expert Solutions from Carcamo and Ortega (Soluciones Expertas de Cárcamo y Ortega).</strong>
+          </p>
+          <p class="text-secondary">
+            En Escatega, creemos que la tecnología debe ser un aliado fortalecedor y no una fuente de estrés. Construidos sobre la base de valores cristianos, nos guiamos por los más altos estándares de honestidad, comunicación directa y ejecución confiable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS PROFILES SECTION -->
+  <section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+      <!-- William's Bio Grid -->
+      <div class="row align-items-center g-5 mb-5 pb-5 border-bottom">
+        <div class="col-lg-4 text-center order-lg-1">
+          <div
+            class="p-4 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center border mx-auto"
+            style="width: 240px; height: 240px"
+          >
+            <i
+              class="fa-solid fa-network-wired text-primary mb-3"
+              style="font-size: 5rem"
+            ></i>
+          </div>
+        </div>
+        <div class="col-lg-8 order-lg-2">
+          <h2 class="fw-bold text-dark mb-1">William Ortega</h2>
+          <h5 class="mb-3 text-primary">
+            Líder de Sistemas y Mentor Tecnológico Internacional
+          </h5>
+          <p class="text-secondary">
+            Mi trayectoria de 22 años en tecnología comenzó de manera práctica, ensamblando y
+            reparando computadoras en Nicaragua. Avancé rápidamente hacia la gestión de
+            sistemas críticos para bancos e instituciones de gran envergadura, hasta fundar
+            mi propia firma consultora de TI.
+          </p>
+          <p class="text-secondary">
+            Mi carrera tomó un giro global al desempeñarme como técnico sénior y Gerente de TI en Nicaragua, México y Zimbabue, además de capacitar a nuevos técnicos en Malawi. En total, he mentoreado personalmente a más de 20 profesionales que hoy ocupan puestos tecnológicos sénior y dirigen sus propios negocios.
+          </p>
+          <div class="mb-3">
+            <a href="/es/ortega" class="text-decoration-none small fw-bold" style="color: var(--eg-orange) !important;">
+              Ver Perfil de Arquitectura de Sistemas &rarr;
+            </a>
+          </div>
+          <div
+            class="p-3 bg-white rounded border-start border-4 border-dark mt-3"
+          >
+            <p class="mb-0 fw-bold text-dark">
+              "Este camino consolidó mi verdadera vocación: no solo mantener sistemas, sino impulsar y empoderar a las personas."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alan's Bio Grid -->
+      <div class="row align-items-center g-5">
+        <div class="col-lg-4 text-center order-lg-2">
+          <div
+            class="p-4 bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center border mx-auto"
+            style="width: 240px; height: 240px"
+          >
+            <i
+              class="fa-solid fa-chart-line text-primary mb-3"
+              style="font-size: 5rem"
+            ></i>
+          </div>
+        </div>
+        <div class="col-lg-8 order-lg-1">
+          <h2 class="fw-bold text-dark mb-1">Alan Carcamo</h2>
+          <h5 class="mb-3 text-primary">El Estratega Tecnológico Emprendedor</h5>
+          <p class="text-secondary">
+            Alan aporta un sólido espíritu emprendedor a Escatega. Durante más de 20 años, ha dirigido exitosamente su propia consultoría de TI en Nicaragua, brindando soporte confiable y especializado a más de 10 empresas.
+          </p>
+          <p class="text-secondary">
+            Alan es un creador de negocios con una destacada trayectoria en el lanzamiento y gestión de diversos emprendimientos, incluyendo tiendas comerciales y distribuidores automotrices.
+          </p>
+          <div
+            class="p-3 bg-white rounded border-start border-4 border-dark mt-3"
+          >
+            <p class="mb-0 fw-bold text-dark">
+              Esta experiencia única le otorga un entendimiento excepcional sobre cómo la tecnología responde a las distintas necesidades empresariales, desde el cuarto de servidores hasta el área de ventas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION PURPOSE SECTION -->
+  <section class="py-5 bg-dark text-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Por Qué Creamos Escatega</h2>
+        <p class="text-light opacity-75 mt-2">
+          Claridad sobre la complejidad, soluciones prácticas en lugar de teoría vacía.
+        </p>
+        <div
+          class="mx-auto mt-3"
+          style="width: 40px; height: 3px; background-color: #ff6b35"
+        ></div>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Audience 1 -->
+        <div class="col-md-5">
+          <div
+            class="p-4 rounded-4 h-100"
+            style="
+              background-color: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+            "
+          >
+            <div class="mb-3 text-primary">
+              <i class="fa-solid fa-graduation-cap fa-2x"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Para Futuros Profesionales Tech</h4>
+            <p class="opacity-75 mb-0">
+              Guiar a jóvenes profesionales de la tecnología que se sienten abrumados, brindándoles las habilidades prácticas y reales que habríamos deseado tener cuando comenzamos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Audience 2 -->
+        <div class="col-md-5">
+          <div
+            class="p-4 rounded-4 h-100"
+            style="
+              background-color: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+            "
+          >
+            <div class="mb-3 text-primary">
+              <i class="fa-solid fa-briefcase fa-2x"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Para Empresas y Profesionales</h4>
+            <p class="opacity-75 mb-0">
+              Ayudar a empresas y profesionales a dominar las herramientas digitales necesarias para prosperar, sin hacerles perder su valioso tiempo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 pt-3">
+        <h5 class="fw-bold mb-4 text-primary">
+          Gracias por estar aquí. Esperamos acompañarte y ayudarte a dominar tu camino tecnológico.
+        </h5>
+        <a
+          href="#contact"
+          class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm"
+          >Contáctanos</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATED CONTACT SECTION -->
+  <section id="contact" class="py-5 bg-light border-top">
+    <div class="container py-4">
+      <div class="row g-5">
+        <!-- Contact Form Box -->
+        <div class="col-lg-7">
+          <div class="card p-4 border-0 shadow-sm bg-white rounded-4">
+            <h3 class="fw-bold text-dark mb-4">Envíanos un Mensaje</h3>
+
+            <form action="#" method="POST">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="Nombre"
+                      required
+                    />
+                    <label for="firstName">Nombre</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder="Apellido"
+                      required
+                    />
+                    <label for="lastName">Apellido</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailAddress"
+                    placeholder="nombre@ejemplo.com"
+                    required
+                  />
+                  <label for="emailAddress">Correo Electrónico</label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <select
+                    class="form-select"
+                    id="serviceInterest"
+                    aria-label="Especifica tu interés"
+                    required
+                  >
+                    <option value="" selected disabled>Selecciona una opción...</option>
+                    <option value="mentorship">Mentoría en IA y Tecnología</option>
+                    <option value="automation">Soluciones de Automatización Empresarial</option>
+                    <option value="foundation">Paquete de Base Digital</option>
+                    <option value="other">Consulta General</option>
+                  </select>
+                  <label for="serviceInterest">¿En qué podemos ayudarte?</label>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    id="messageText"
+                    placeholder="Escribe tu mensaje aquí"
+                    style="height: 150px"
+                    required
+                  ></textarea>
+                  <label for="messageText">Cuéntanos sobre tu proyecto o metas</label>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 rounded-pill shadow-sm py-3"
+              >
+                Enviar Consulta
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Partnership Sidebars & Details -->
+        <div class="col-lg-5">
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="fw-bold text-dark mb-3">¿Por Qué Colaborar con Escatega?</h3>
+              <p class="text-secondary mb-4">
+                No creemos en tecnicismos innecesariamente complicados ni en cobrarte por configuraciones que no te pertenecen. Basados en valores cristianos e integridad absoluta, nuestro compromiso garantiza claridad y resultados prácticos.
+              </p>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-envelope fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">Comunicación Corporativa</h5>
+                  <p class="text-secondary mb-0">info@escatega.com</p>
+                </div>
+              </div>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-clock fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">Horario de Atención</h5>
+                  <p class="text-secondary mb-0">Lunes – Viernes: 9:00 AM – 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dark Callout Block -->
+            <div class="p-4 bg-dark text-white rounded-4 mt-4">
+              <p class="mb-0 small opacity-75">
+                <i class="fa-solid fa-quote-left text-primary me-2"></i>
+                Ya seas un joven profesional de la tecnología buscando dar su siguiente gran paso, o un emprendedor optimizando procesos tradicionales, diseñamos la tecnología en tus propios términos.
+              </p>
+              <p class="mb-0 text-end fw-bold text-primary small mt-2">— William y Alan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

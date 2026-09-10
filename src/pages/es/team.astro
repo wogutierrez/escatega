@@ -1,0 +1,82 @@
+---
+// src/pages/es/team.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Nuestro Equipo | Escatega">
+  
+  <!-- Header Section -->
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <h1 class="display-4 fw-bold text-dark mb-3">Conoce a las Mentes Detrás de Escatega</h1>
+      <div class="mx-auto my-3" style="width: 60px; height: 4px; background-color: var(--eg-orange)"></div>
+      <p class="lead text-secondary mx-auto" style="max-width: 700px;">
+        Uniendo más de 20 años de experiencia cada uno en arquitecturas tecnológicas complejas y crecimiento operativo empresarial para guiar tu evolución digital.
+      </p>
+    </div>
+  </header>
+
+  <!-- Team Grid Section -->
+  <section class="py-5 bg-white">
+    <div class="container py-5">
+      <div class="row g-5 justify-content-center">
+        
+        <!-- WILLIAM'S CARD -->
+        <div class="col-lg-5">
+          <div class="card h-100 feature-card shadow-sm p-4 rounded-4 border-0 bg-light">
+            <div class="card-body d-flex flex-column">
+              <div class="mb-3 text-primary">
+                <i class="fa-solid fa-network-wired fa-2x"></i>
+              </div>
+              <h2 class="card-title h3 fw-bold text-dark mb-1">William Ortega</h2>
+              <p class="fw-semibold mb-3" style="color: var(--eg-orange);">Arquitecto Principal de Soluciones</p>
+              
+              <p class="card-text text-secondary mb-4">
+                Con una sólida trayectoria en administración de sistemas senior para organizaciones internacionales, William se especializa en transformar cuellos de botella operativos complejos en infraestructuras altamente escalables, seguras y resilientes.
+              </p>
+              
+              <!-- Clean profile routing to your dedicated card page -->
+              <a href="/es/ortega" class="btn btn-outline-dark mt-auto rounded-pill w-100">
+                Ver Perfil Completo de Arquitectura
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALAN'S CARD -->
+        <div class="col-lg-5">
+          <div class="card h-100 feature-card shadow-sm p-4 rounded-4 border-0 bg-light">
+            <div class="card-body d-flex flex-column">
+              <div class="mb-3 text-primary">
+                <i class="fa-solid fa-chart-line fa-2x"></i>
+              </div>
+              <h2 class="card-title h3 fw-bold text-dark mb-1">Alan [Apellido]</h2>
+              <p class="fw-semibold mb-3" style="color: var(--eg-orange);">Estratega de Operaciones de Negocio</p>
+              
+              <p class="card-text text-secondary mb-4">
+                Un emprendedor que ha lanzado y gestionado con éxito múltiples empresas operativas. Alan aporta una visión corporativa directa y realista para garantizar que cada decisión de arquitectura técnica se traduzca en ventajas estratégicas de mercado.
+              </p>
+              
+              <!-- Scalable link for when Alan builds his layout -->
+              <a href="/es/contact" class="btn btn-outline-dark mt-auto rounded-pill w-100">
+                Consultar sobre Operaciones de Negocio
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Corporate Values Statement -->
+  <section class="py-5 bg-dark text-white text-center">
+    <div class="container py-4" style="max-width: 600px;">
+      <h3 class="fw-bold mb-3">Nuestra Promesa</h3>
+      <p class="text-light opacity-75 mb-0">
+        Mantenemos nuestra consultoría bajo los más altos estándares de claridad, comunicación directa e implementación confiable en cada hito de ingeniería.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

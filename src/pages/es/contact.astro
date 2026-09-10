@@ -1,0 +1,173 @@
+---
+// src/pages/es/contact.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contacto | Escatega">
+  
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <p class="text-uppercase fw-bold mb-2 text-primary">Ponte en Contacto</p>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">
+        Construyamos Algo Juntos
+      </h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 600px">
+        Simplificamos el camino entre tus desafíos digitales y nuestras soluciones a medida.
+      </p>
+      <div
+        class="mx-auto mt-4"
+        style="width: 60px; height: 4px; background-color: #ff6b35"
+      ></div>
+    </div>
+  </header>
+
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <div class="card p-4 border-0 shadow-sm bg-light rounded-4">
+            <h3 class="fw-bold text-dark mb-4">Envíanos un Mensaje</h3>
+
+            <form action="#" method="POST">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="Nombre"
+                      required
+                    />
+                    <label for="firstName">Nombre</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      placeholder="Apellido"
+                      required
+                    />
+                    <label for="lastName">Apellido</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="emailAddress"
+                    placeholder="nombre@ejemplo.com"
+                    required
+                  />
+                  <label for="emailAddress">Correo Electrónico</label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-floating">
+                  <select
+                    class="form-select"
+                    id="serviceInterest"
+                    aria-label="Especifica tu interés"
+                    required
+                  >
+                    <option value="" selected disabled>
+                      Selecciona una opción...
+                    </option>
+                    <option value="mentorship">Mentoría en IA y Tecnología</option>
+                    <option value="automation">
+                      Soluciones de Automatización Empresarial
+                    </option>
+                    <option value="foundation">
+                      Paquete de Base Digital
+                    </option>
+                    <option value="other">Consulta General</option>
+                  </select>
+                  <label for="serviceInterest"
+                    >¿En qué podemos ayudarte?</label
+                  >
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <div class="form-floating">
+                  <textarea
+                    class="form-control"
+                    id="messageText"
+                    placeholder="Escribe tu mensaje aquí"
+                    style="height: 150px"
+                    required
+                  ></textarea>
+                  <label for="messageText"
+                    >Cuéntanos sobre tu proyecto o metas</label
+                  >
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 rounded-pill shadow-sm py-3"
+              >
+                Enviar Consulta
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="h-100 d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="fw-bold text-dark mb-3">
+                ¿Por Qué Colaborar con Escatega?
+              </h3>
+              <p class="text-secondary mb-4">
+                No creemos en tecnicismos innecesariamente complicados ni en cobrarte por configuraciones que no te pertenecen. Basados totalmente en valores cristianos e integridad absoluta, nuestro compromiso garantiza claridad y resultados prácticos.
+              </p>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-envelope fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">
+                    Comunicación Corporativa
+                  </h5>
+                  <p class="text-secondary mb-0">info@escatega.com</p>
+                </div>
+              </div>
+
+              <div class="mb-4 d-flex align-items-start">
+                <div class="text-primary me-3 mt-1">
+                  <i class="fa-solid fa-clock fa-xl"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold text-dark mb-1">Horario de Atención</h5>
+                  <p class="text-secondary mb-0">
+                    Lunes – Viernes: 9:00 AM – 5:00 PM
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-dark text-white rounded-4 mt-4">
+              <p class="mb-0 small opacity-75">
+                <i class="fa-solid fa-quote-left text-primary me-2"></i>
+                Ya seas un joven profesional de la tecnología buscando dar su siguiente gran paso, o un emprendedor optimizando procesos tradicionales, diseñamos la tecnología explícitamente en tus propios términos.
+              </p>
+              <p class="mb-0 text-end fw-bold text-primary small mt-2">
+                — William y Alan
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
