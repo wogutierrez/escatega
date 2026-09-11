@@ -5,12 +5,16 @@ import BaseLayout from '@layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
-  // Filter for Spanish articles
-  const esArticles = articles.filter(entry => entry.id.startsWith('es/'));
+  
+  // 1. Filtramos los artículos que están en la carpeta 'es/'
+  // (usamos entry.slug o entry.id para verificar)
+  const esArticles = articles.filter(entry => entry.slug.startsWith('es/'));
 
   return esArticles.map(entry => {
-    // Strip 'es/' prefix and file extension to create a clean slug
-    const slug = entry.id.replace(/^es\//, '').replace(/\.[^/.]+$/, '');
+    // 2. Quitamos el prefijo 'es/' del slug
+    // Si entry.slug es "es/alinafe-perdio-su-negocio", slug será "alinafe-perdio-su-negocio"
+    const slug = entry.slug.replace(/^es\//, '');
+
     return {
       params: { slug },
       props: { entry },
@@ -20,6 +24,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
 ---
 
 <BaseLayout title={`${entry.data.title} | ESCATEGA`}>
