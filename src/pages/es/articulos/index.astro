@@ -1,19 +1,18 @@
 ---
-// src/pages/es/articles/index.astro
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles');
 
-// 1. Filter specifically for Spanish content in the 'es/' folder
-// 2. Sort articles by publication date (newest first)
+// 1. Filtrar específicamente contenido en español buscando en entry.slug
+// 2. Ordenar por fecha de publicación (más reciente primero)
 const articles = allArticles
-  .filter(entry => entry.id.startsWith('es/'))
+  .filter(entry => entry.slug.startsWith('es/'))
   .sort((a, b) => 
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 
-// Dynamically extract unique category values from the Spanish articles
+// Extraer categorías únicas de los artículos en español
 const uniqueCategories = Array.from(
   new Set(articles.map((article) => article.data.category))
 ).filter(Boolean);
@@ -51,8 +50,8 @@ const categories = ["Todos", ...uniqueCategories];
       <!-- Article Grid -->
       <div class="row g-4" id="articles-grid">
         {articles.map((article) => {
-          // Strip out 'es/' folder prefix to build clean URL slug
-          const cleanSlug = article.id.replace(/^es\//, '').replace(/\.[^/.]+$/, '');
+          // Limpiar el prefijo 'es/' usando article.slug
+          const cleanSlug = article.slug.replace(/^es\//, '');
           return (
             <div class="col-md-6 col-lg-4 article-card-wrapper" data-category={article.data.category}>
               <div class="card h-100 feature-card shadow-sm p-3 rounded-4 border-0">
@@ -70,7 +69,6 @@ const categories = ["Todos", ...uniqueCategories];
                     <small class="text-muted">
                       {new Date(article.data.pubDate).toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' })}
                     </small>
-                    <!-- Navigates directly to /es/articles/[cleanSlug] -->
                     <a href={`/es/articles/${cleanSlug}`} class="btn btn-outline-dark btn-sm rounded-pill px-3 fw-semibold">
                       Leer Artículo
                     </a>
