@@ -18,13 +18,12 @@ collections:
     label: "Articles"
     folder: "src/content/articles"
     create: true
+    # Compute the filename slug per language from its own title
     slug: "{{slug}}"
-    # Collection-level i18n structure definition
     i18n:
       structure: multiple_folders
       locales: [en, es]
     fields:
-      # Translatable fields MUST be set to "i18n: true" (or "i18n: translate")
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, i18n: duplicate }
       - { label: "Description", name: "description", widget: "text", i18n: true }
