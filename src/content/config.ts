@@ -17,6 +17,7 @@ const articlesCollection = defineCollection({
       'Consigue mas clientes'
     ]),
     featured: z.boolean().default(false),
+    lang: z.enum(['en', 'es']).default('en'),
   }),
 });
 

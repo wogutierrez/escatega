@@ -5,10 +5,10 @@ import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles');
 
-// 1. Filter specifically for English content in the 'en/' folder
+// 1. Filter explicitly by language property
 // 2. Sort articles by publication date (newest first)
 const articles = allArticles
-  .filter(entry => entry.id.startsWith('en/'))
+  .filter(entry => entry.data.lang === 'en' || (!entry.data.lang && !entry.id.startsWith('es/')))
   .sort((a, b) => 
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
@@ -52,8 +52,8 @@ const categories = [
       <!-- Article Grid -->
       <div class="row g-4" id="articles-grid">
         {articles.map((article) => {
-          // Strip out 'en/' folder prefix to build a clean URL slug
-          const cleanSlug = article.id.replace(/^en\//, '').replace(/\.[^/.]+$/, '');
+          // Resolve clean slug from frontmatter override, slug property, or entry id
+          const cleanSlug = article.data.slug || article.slug || article.id.replace(/^en\//, '').replace(/\.[^/.]+$/, '');
           return (
             <div class="col-md-6 col-lg-4 article-card-wrapper" data-category={article.data.category}>
               <div class="card h-100 feature-card shadow-sm p-3 rounded-4 border-0">
