@@ -1,6 +1,6 @@
 ---
 // src/pages/es/articles/index.astro
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../@layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allArticles = await getCollection('articles');

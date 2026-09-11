@@ -7,8 +7,8 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'es'],
     routing: {
-      prefixDefaultLocale: true, // Forces /en/ and /es/
-      redirectToDefaultLocale: false // We will handle root / explicitly
+      prefixDefaultLocale: false, // Clean URLs: English stays at /, Spanish at /es/
+      redirectToDefaultLocale: false
     }
   }
 });
