@@ -47,25 +47,53 @@ export function useTranslations(lang: keyof typeof ui) {
  */
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, targetLang = lang) {
-    const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return targetLang === 'en' ? cleanPath : `/es${cleanPath}`;
+    const cleanPath = path.replace(/^\/+|\/+$/g, '').toLowerCase();
+
+    let translatedSlug = cleanPath;
+    if (routeTranslations[cleanPath] && routeTranslations[cleanPath][targetLang]) {
+      translatedSlug = routeTranslations[cleanPath][targetLang];
+    }
+
+    if (targetLang === 'en') {
+      return translatedSlug ? `/${translatedSlug}` : '/';
+    } else {
+      return translatedSlug ? `/es/${translatedSlug}` : '/es/';
+    }
   };
 }
 
 // Route translation mapping (English slug <-> Spanish slug)
 export const routeTranslations: Record<string, { en: string; es: string }> = {
   '': { en: '', es: '' },
-  'about': { en: 'about', es: 'sobre' },
-  'sobre': { en: 'about', es: 'sobre' },
+  
+  // About Us
+  'about': { en: 'about', es: 'nosotros' },
+  'nosotros': { en: 'about', es: 'nosotros' },
+  'sobre': { en: 'about', es: 'nosotros' },
+  'sobre-nosotros': { en: 'about', es: 'nosotros' },
+
+  // Contact
   'contact': { en: 'contact', es: 'contacto' },
   'contacto': { en: 'contact', es: 'contacto' },
-  'foundation': { en: 'foundation', es: 'fundacion' },
-  'fundacion': { en: 'foundation', es: 'fundacion' },
-  'ortega': { en: 'ortega', es: 'ortega' },
-  'security-assessment': { en: 'security-assessment', es: 'evaluacion-seguridad' },
-  'evaluacion-seguridad': { en: 'security-assessment', es: 'evaluacion-seguridad' },
+
+  // Team
   'team': { en: 'team', es: 'equipo' },
   'equipo': { en: 'team', es: 'equipo' },
+
+  // Security Assessment
+  'security-assessment': { en: 'security-assessment', es: 'evaluacion-seguridad' },
+  'evaluacion-seguridad': { en: 'security-assessment', es: 'evaluacion-seguridad' },
+
+  // Business Foundations
+  'foundation': { en: 'foundation', es: 'fundamentos' },
+  'fundamentos': { en: 'foundation', es: 'fundamentos' },
+  'bases': { en: 'foundation', es: 'fundamentos' },
+  'fundacion': { en: 'foundation', es: 'fundamentos' },
+
+  // Brand / Personal route
+  'ortega': { en: 'ortega', es: 'ortega' },
+
+  // Articles / Blog (Folder & Route)
   'articles': { en: 'articles', es: 'articulos' },
   'articulos': { en: 'articles', es: 'articulos' },
 };
@@ -82,7 +110,7 @@ export function getAlternatePageUrl(url: URL): string {
   const currentSlug = rawSlug.toLowerCase();
 
   let targetSlug = currentSlug;
-  if (routeTranslations[currentSlug]) {
+  if (routeTranslations[currentSlug] && routeTranslations[currentSlug][targetLang]) {
     targetSlug = routeTranslations[currentSlug][targetLang];
   }
 
