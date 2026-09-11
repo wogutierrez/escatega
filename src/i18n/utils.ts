@@ -88,6 +88,7 @@ export const routeTranslations: Record<string, { en: string; es: string }> = {
   'foundation': { en: 'foundation', es: 'fundamentos' },
   'fundamentos': { en: 'foundation', es: 'fundamentos' },
   'bases': { en: 'foundation', es: 'fundamentos' },
+  'fundacion': { en: 'foundation', es: 'fundamentos' },
 
   // Brand / Personal route
   'ortega': { en: 'ortega', es: 'ortega' },

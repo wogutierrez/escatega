@@ -2,7 +2,7 @@ export const es = {
   nav: {
     home: 'Inicio',
     about: 'Sobre Nosotros',
-    foundation: 'Fundación',
+    foundation: 'Fundamentos',
     securityAssessment: 'Evaluación de Seguridad',
     team: 'Equipo',
     articles: 'Artículos',
