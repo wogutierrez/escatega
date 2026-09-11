@@ -12,12 +12,13 @@ const articles = allArticles
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 
-// Extraer categorías únicas de los artículos en español
-const uniqueCategories = Array.from(
-  new Set(articles.map((article) => article.data.category))
-).filter(Boolean);
-
-const categories = ["Todos", ...uniqueCategories];
+// Categorías fijas y manuales en español (controladas desde Sveltia)
+const categories = [
+  "Todos",
+  "Ahorra tiempo y estres",
+  "Protege tu negocio",
+  "Consigue mas clientes"
+];
 ---
 
 <BaseLayout title="Conocimiento y Perspectivas | ESCATEGA">
