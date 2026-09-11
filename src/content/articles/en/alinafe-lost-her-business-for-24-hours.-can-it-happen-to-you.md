@@ -3,7 +3,7 @@ title: Alinafe lost her business for 24 hours. Can it happen to you?
 slug: ''
 pubDate: 2026-09-07
 description: Can someone steal the product of your hard work using only the internet?
-coverImage: /images/uploads/African Woman Looking worried at her phone.jpg
+coverImage: ''
 category: Save Time & Stress
 featured: true
 ---
