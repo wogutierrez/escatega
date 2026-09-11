@@ -141,23 +141,37 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
-"alinafe-lost-her-business-for-24-hours.-can-it-happen-to-you.md": {
-	id: "alinafe-lost-her-business-for-24-hours.-can-it-happen-to-you.md";
-  slug: "alinafe-lost-her-business-for-24-hours-can-it-happen-to-you";
+"en/alinafe-lost-her-business-for-24-hours.-can-it-happen-to-you.md": {
+	id: "en/alinafe-lost-her-business-for-24-hours.-can-it-happen-to-you.md";
+  slug: "en/alinafe-lost-her-business-for-24-hours-can-it-happen-to-you";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"first-test-article.md": {
-	id: "first-test-article.md";
-  slug: "first-test-article";
+"en/first-test-article.md": {
+	id: "en/first-test-article.md";
+  slug: "en/first-test-article";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"modern-web-architecture-building-speed-and-scale.md": {
-	id: "modern-web-architecture-building-speed-and-scale.md";
-  slug: "modern-web-architecture-building-speed-and-scale";
+"en/modern-web-architecture-building-speed-and-scale.md": {
+	id: "en/modern-web-architecture-building-speed-and-scale.md";
+  slug: "en/modern-web-architecture-building-speed-and-scale";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"en/test-in-both-languages.md": {
+	id: "en/test-in-both-languages.md";
+  slug: "en/test-in-both-languages";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"es/test-in-both-languages.md": {
+	id: "es/test-in-both-languages.md";
+  slug: "es/test-in-both-languages";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

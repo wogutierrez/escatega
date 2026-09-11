@@ -1,3 +1,4 @@
+// src/i18n/utils.ts
 import { en } from './en';
 import { es } from './es';
 
@@ -12,9 +13,9 @@ export const ui = { en, es } as const;
 /**
  * Extracts current locale from the request URL
  */
-export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
+export function getLangFromUrl(url: URL): keyof typeof ui {
+  const segments = url.pathname.split('/').filter(Boolean);
+  if (segments[0] === 'es') return 'es';
   return defaultLang;
 }
 
@@ -30,7 +31,6 @@ export function useTranslations(lang: keyof typeof ui) {
       if (value && k in value) {
         value = value[k];
       } else {
-        // Fallback to English string if missing
         let fallback: any = ui[defaultLang];
         for (const fk of keys) {
           if (fallback && fk in fallback) fallback = fallback[fk];
@@ -48,14 +48,13 @@ export function useTranslations(lang: keyof typeof ui) {
 export function useTranslatedPath(lang: keyof typeof ui) {
   return function translatePath(path: string, targetLang = lang) {
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
-    return `/${targetLang}${cleanPath}`;
+    return targetLang === 'en' ? cleanPath : `/es${cleanPath}`;
   };
 }
 
-
 // Route translation mapping (English slug <-> Spanish slug)
 export const routeTranslations: Record<string, { en: string; es: string }> = {
-  '': { en: '', es: '' }, // Homepage
+  '': { en: '', es: '' },
   'about': { en: 'about', es: 'sobre' },
   'sobre': { en: 'about', es: 'sobre' },
   'contact': { en: 'contact', es: 'contacto' },
@@ -75,19 +74,21 @@ export const routeTranslations: Record<string, { en: string; es: string }> = {
  * Generates the opposite language equivalent URL for the current page
  */
 export function getAlternatePageUrl(url: URL): string {
-  const segments = url.pathname.split('/').filter(Boolean); // e.g. ["en", "about"]
-  if (segments.length === 0) return '/es/';
+  const segments = url.pathname.split('/').filter(Boolean);
+  const isSpanish = segments[0] === 'es';
+  
+  const targetLang = isSpanish ? 'en' : 'es';
+  const rawSlug = isSpanish ? (segments[1] || '') : (segments[0] || '');
+  const currentSlug = rawSlug.toLowerCase();
 
-  const currentLang = segments[0] as 'en' | 'es';
-  const targetLang = currentLang === 'en' ? 'es' : 'en';
-  const currentSlug = segments[1] || '';
-
-  // Check if we have an explicit mapping
+  let targetSlug = currentSlug;
   if (routeTranslations[currentSlug]) {
-    const targetSlug = routeTranslations[currentSlug][targetLang];
-    return `/${targetLang}/${targetSlug}${targetSlug ? '/' : ''}`;
+    targetSlug = routeTranslations[currentSlug][targetLang];
   }
 
-  // Fallback if no direct route mapping found (defaults to target language home)
-  return `/${targetLang}/`;
+  if (targetLang === 'en') {
+    return targetSlug ? `/${targetSlug}` : '/';
+  } else {
+    return targetSlug ? `/es/${targetSlug}` : '/es/';
+  }
 }
