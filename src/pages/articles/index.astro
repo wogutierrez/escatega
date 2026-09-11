@@ -13,12 +13,15 @@ const articles = allArticles
     new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
 
-const categories = [
-  "All",
-  "Save Time & Stress",
-  "Protect Your Business",
-  "Get More Clients"
-];
+// 3. DYNAMIC CATEGORY EXTRACTION:
+// Extract unique categories from the filtered articles
+const uniqueCategories = Array.from(
+  new Set(articles.map((article) => article.data.category))
+).filter(Boolean); // removes any undefined or empty categories
+
+// 4. Combine "All" with the dynamically found categories
+const categories = ["All", ...uniqueCategories];
+
 ---
 
 <BaseLayout title="Business Knowledge & Insights | ESCATEGA">
