@@ -28,6 +28,19 @@ collections:
       - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, i18n: duplicate }
       - { label: "Description", name: "description", widget: "text", i18n: true }
       - { label: "Cover Image", name: "coverImage", widget: "image", required: false, i18n: duplicate }
-      - { label: "Category", name: "category", widget: "select", options: ["Save Time & Stress", "Protect Your Business", "Get More Clients"], i18n: duplicate }
+      - { 
+    label: "Category", 
+    name: "category", 
+    widget: "select", 
+    options: [
+      "Save Time & Stress", 
+      "Protect Your Business", 
+      "Get More Clients",
+      "Ahorra tiempo y estres",
+      "Protege tu negocio",
+      "Consigue mas clientes"
+    ], 
+    i18n: duplicate 
+  }
       - { label: "Featured Article", name: "featured", widget: "boolean", default: false, i18n: duplicate }
       - { label: "Body", name: "body", widget: "markdown", i18n: true }

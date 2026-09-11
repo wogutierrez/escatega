@@ -12,6 +12,9 @@ const articlesCollection = defineCollection({
       'Save Time & Stress',
       'Protect Your Business',
       'Get More Clients',
+      'Ahorra tiempo y estres',
+      'Protege tu negocio',
+      'Consigue mas clientes'
     ]),
     featured: z.boolean().default(false),
   }),
