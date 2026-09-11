@@ -1,7 +1,7 @@
 ---
 title: Maria perdio su negocio en 24 Horas
 pubDate: 2026-09-07
-description: Te pueden robar tu negocio?
+description: Te pueden robar tu negocio? De verdad
 coverImage: /images/uploads/African Woman Looking worried at her phone.jpg
 category: Save Time & Stress
 featured: true
