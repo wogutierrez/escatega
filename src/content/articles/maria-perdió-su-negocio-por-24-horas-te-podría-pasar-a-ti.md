@@ -1,6 +1,5 @@
 ---
 title: Maria perdió su negocio por 24 horas, te podría pasar a ti?
-slug: ''
 pubDate: 2026-09-12
 lang: en
 description: Maria perdió su negocio for 24 horas. Te podría pasar lo mismo?

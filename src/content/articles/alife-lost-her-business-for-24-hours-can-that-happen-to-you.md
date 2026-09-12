@@ -1,6 +1,5 @@
 ---
 title: Alife lost her business for 24 hours, Can that happen to you?
-slug: ''
 pubDate: 2026-09-12
 lang: en
 description: Alinafe lost her business for 24 hours
