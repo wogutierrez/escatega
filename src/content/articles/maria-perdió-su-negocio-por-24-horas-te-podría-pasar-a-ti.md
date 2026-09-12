@@ -1,7 +1,7 @@
 ---
 title: Maria perdió su negocio por 24 horas, te podría pasar a ti?
 pubDate: 2026-09-12
-lang: en
+lang: es
 description: Maria perdió su negocio for 24 horas. Te podría pasar lo mismo?
 coverImage: /images/uploads/A_woman_in_latinoamerica_worried_when_loking_at_her_cellphon.jpg
 category: Protege tu negocio
