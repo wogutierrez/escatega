@@ -12,10 +12,10 @@ collections:
     label: "Articles"
     folder: "src/content/articles"
     create: true
-    slug: "{{slug}}"
+    slug: "{{title | slugify}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "URL Slug", name: "slug", widget: "string", hint: "Filename/URL path (e.g., my-article or mi-articulo)" }
+      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Auto-generated from title if left blank" }
       - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Language", name: "lang", widget: "select", options: ["en", "es"], default: "en", hint: "Choose whether this article is in English or Spanish" }
       - { label: "Description", name: "description", widget: "text" }

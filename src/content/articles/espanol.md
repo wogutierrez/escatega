@@ -1,6 +1,5 @@
 ---
 title: Espanol
-slug: ''
 pubDate: 2026-09-12
 lang: es
 description: Espanol
