@@ -18,7 +18,7 @@ Pero pregúntate: **¿es ahí donde realmente vive tu negocio hoy en día?**
 
 Para la mayoría de los propietarios de negocios locales, el verdadero escaparate no está hecho de ladrillos y cemento. Vive en la pantalla de un teléfono. Es el catálogo de WhatsApp Business, los chats de clientes guardados, la lista de contactos creada durante años y las confirmaciones de pago que se envían de un lado a otro todos los días.
 
-![](/images/uploads/A_woman_in_latinoamerica_worried_when_loking_at_her_cellphon.jpg)
+![Una Mujer preocupada viendo su teléfono](/images/uploads/A_woman_in_latinoamerica_worried_when_loking_at_her_cellphon.jpg "Una Mujer preocupada viendo su teléfono")
 
 Cuando Maria vino a nosotros pidiendo ayuda, estaba en un estado de pánico total.
 
@@ -37,6 +37,8 @@ Lo que no sabía es cómo operan los ciberdelincuentes modernos. Hoy en día, lo
 Una vez que la IA entró en uno de esos sitios menores y extrajo el inicio de sesión guardado de Maria, analizó el texto en segundos, descifró su patrón "ingenioso" y entró directamente en su cuenta principal de Google.
 
 ### A partir de ahí, la pesadilla se desató rápidamente:
+
+![](/images/uploads/Phone%20in%20a%20purshe%20Deviced%20has%20been%20hancked.jpg)
 
 _Foto: Darse cuenta de que la cuenta principal de tu negocio está bloqueada toma menos de un minuto._
 
