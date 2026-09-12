@@ -1,6 +1,6 @@
 ---
 title: Alinafe lost her business for 24 hours. Can it happen to you?
-slug: ''
+slug: Alinafe lost her business for 24 hours
 pubDate: 2026-09-07
 description: Can someone steal the product of your hard work using only the internet?
 coverImage: ''
