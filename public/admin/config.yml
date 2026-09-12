@@ -7,27 +7,19 @@ backend:
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 
-# Global Multilingual (i18n) Setup
-i18n:
-  structure: multiple_folders
-  locales: [en, es]
-  default_locale: en
-
 collections:
   - name: "articles"
     label: "Articles"
     folder: "src/content/articles"
     create: true
     slug: "{{slug}}"
-    i18n:
-      structure: multiple_folders
-      locales: [en, es]
     fields:
-      - { label: "Title", name: "title", widget: "string", i18n: true }
-      - { label: "URL Slug", name: "slug", widget: "string", i18n: true, required: false, hint: "Custom localized URL path (e.g., maria-perdio-su-negocio)" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, i18n: duplicate }
-      - { label: "Description", name: "description", widget: "text", i18n: true }
-      - { label: "Cover Image", name: "coverImage", widget: "image", required: false, i18n: duplicate }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Custom URL path (e.g., maria-perdio-su-negocio)" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Language", name: "lang", widget: "select", options: ["en", "es"], default: "en", hint: "Choose whether this article is in English or Spanish" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
       - { 
           label: "Category", 
           name: "category", 
@@ -39,8 +31,7 @@ collections:
             "Ahorra tiempo y estres",
             "Protege tu negocio",
             "Consigue mas clientes"
-          ], 
-          i18n: true 
+          ] 
         }
-      - { label: "Featured Article", name: "featured", widget: "boolean", default: false, i18n: duplicate }
-      - { label: "Body", name: "body", widget: "markdown", i18n: true }
+      - { label: "Featured Article", name: "featured", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }
