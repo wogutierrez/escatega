@@ -6,6 +6,7 @@ description: Can someone steal the product of your hard work using only the inte
 coverImage: /images/uploads/African Woman Looking worried at her phone.jpg
 category: Save Time & Stress
 featured: true
+lang: "en"
 ---
 
 **_Note:_** _Names and minor identifying details have been changed to protect client privacy._
