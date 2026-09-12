@@ -1,21 +1,12 @@
-backend:
-  name: github
-  repo: wogutierrez/escatega
-  branch: main
-  site_domain: escatega.com
-
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
-
 collections:
   - name: "articles"
     label: "Articles"
     folder: "src/content/articles"
     create: true
-    slug: "{{slug | slugify}}"
+    slug: "{{title | slugify}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Custom URL path (e.g., maria-perdio-su-negocio)" }
+      - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Auto-generated from title" }
       - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { label: "Language", name: "lang", widget: "select", options: ["en", "es"], default: "en", hint: "Choose whether this article is in English or Spanish" }
       - { label: "Description", name: "description", widget: "text" }
