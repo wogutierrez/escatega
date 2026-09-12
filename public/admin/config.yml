@@ -12,7 +12,7 @@ collections:
     label: "Articles"
     folder: "src/content/articles"
     create: true
-    slug: "{{slug}}"
+    slug: "{{slug | slugify}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "URL Slug", name: "slug", widget: "string", required: false, hint: "Custom URL path (e.g., maria-perdio-su-negocio)" }
