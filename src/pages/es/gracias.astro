@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Gracias | Escatega">
+  <header class="py-5 bg-light border-bottom">
+    <div class="container py-4 text-center">
+      <div class="mb-4 text-primary">
+        <i class="fa-solid fa-circle-check fa-3x"></i>
+      </div>
+      <p class="text-uppercase fw-bold mb-2 text-primary">Mensaje Recibido</p>
+      <h1 class="display-4 fw-extrabold text-dark mb-3">
+        Gracias por Comunicarte
+      </h1>
+      <p class="lead text-secondary mx-auto" style="max-width: 600px">
+        Hemos recibido tu consulta exitosamente y nos pondremos en contacto contigo pronto. Te estamos redirigiendo al inicio...
+      </p>
+      <div class="mx-auto mt-4" style="width: 60px; height: 4px; background-color: #ff6b35"></div>
+      
+      <div class="mt-4">
+        <a href="/es" class="btn btn-outline-primary rounded-pill px-4">
+          Volver al Inicio Ahora
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Auto-redirect script (redirects after 5 seconds) -->
+  <meta http-equiv="refresh" content="5;url=/es" />
+</BaseLayout>

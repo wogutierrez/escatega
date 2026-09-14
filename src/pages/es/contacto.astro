@@ -28,7 +28,21 @@ import BaseLayout from '@layouts/BaseLayout.astro';
           <div class="card p-4 border-0 shadow-sm bg-light rounded-4">
             <h3 class="fw-bold text-dark mb-4">Envíanos un Mensaje</h3>
 
-            <form action="#" method="POST">
+            <!-- Formsubmit Configuration -->
+            <form action="https://formsubmit.co/info@escatega.com" method="POST">
+              
+              <!-- Anti-spam honeypot field -->
+              <input type="text" name="_honey" style="display:none">
+
+              <!-- Disable Captcha page redirect (optional) -->
+              <input type="hidden" name="_captcha" value="false">
+
+              <!-- Custom Subject Line (in Spanish) -->
+              <input type="hidden" name="_subject" value="¡Nueva consulta desde el sitio web de Escatega!">
+
+              <!-- STEP 3: Redirect to Spanish Thank You page after submission -->
+              <input type="hidden" name="_next" value="https://escatega.com/es/gracias">
+
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <div class="form-floating">
@@ -36,6 +50,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                       type="text"
                       class="form-control"
                       id="firstName"
+                      name="firstName"
                       placeholder="Nombre"
                       required
                     />
@@ -48,6 +63,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                       type="text"
                       class="form-control"
                       id="lastName"
+                      name="lastName"
                       placeholder="Apellido"
                       required
                     />
@@ -62,6 +78,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                     type="email"
                     class="form-control"
                     id="emailAddress"
+                    name="email"
                     placeholder="nombre@ejemplo.com"
                     required
                   />
@@ -74,6 +91,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                   <select
                     class="form-select"
                     id="serviceInterest"
+                    name="serviceInterest"
                     aria-label="Especifica tu interés"
                     required
                   >
@@ -100,6 +118,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                   <textarea
                     class="form-control"
                     id="messageText"
+                    name="message"
                     placeholder="Escribe tu mensaje aquí"
                     style="height: 150px"
                     required
