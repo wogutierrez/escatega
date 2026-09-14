@@ -9,7 +9,7 @@ export const es = {
     contact: 'Contacto',
   },
   buttons: {
-    applyNow: 'Postular Ahora',
+    applyNow: 'Applicar Ahora',
     learnMore: 'Más Información',
     readMore: 'Leer Más',
     submit: 'Enviar',
