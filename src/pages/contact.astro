@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-
 ---
 
 <BaseLayout title="Contact Us | Escatega">
@@ -13,7 +12,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
       </h1>
       <p class="lead text-secondary mx-auto" style="max-width: 600px">
         Simplifying the bridge between your digital challenges and our
-        tailored solutions.[cite: 2]
+        tailored solutions.
       </p>
       <div
         class="mx-auto mt-4"
@@ -29,7 +28,18 @@ import BaseLayout from '@layouts/BaseLayout.astro';
           <div class="card p-4 border-0 shadow-sm bg-light rounded-4">
             <h3 class="fw-bold text-dark mb-4">Send Us a Message</h3>
 
-            <form action="#" method="POST">
+            <!-- Formsubmit Configuration -->
+            <form action="https://formsubmit.co/info@escatega.com" method="POST">
+              
+              <!-- Anti-spam honeypot field -->
+              <input type="text" name="_honey" style="display:none">
+
+              <!-- Disable Captcha page redirect (optional) -->
+              <input type="hidden" name="_captcha" value="false">
+
+              <!-- Custom Subject Line -->
+              <input type="hidden" name="_subject" value="New Inquiry from Escatega Website!">
+
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <div class="form-floating">
@@ -37,6 +47,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                       type="text"
                       class="form-control"
                       id="firstName"
+                      name="firstName"
                       placeholder="John"
                       required
                     />
@@ -49,6 +60,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                       type="text"
                       class="form-control"
                       id="lastName"
+                      name="lastName"
                       placeholder="Doe"
                       required
                     />
@@ -63,6 +75,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                     type="email"
                     class="form-control"
                     id="emailAddress"
+                    name="email"
                     placeholder="name@example.com"
                     required
                   />
@@ -75,6 +88,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                   <select
                     class="form-select"
                     id="serviceInterest"
+                    name="serviceInterest"
                     aria-label="Specify your interest"
                     required
                   >
@@ -101,6 +115,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                   <textarea
                     class="form-control"
                     id="messageText"
+                    name="message"
                     placeholder="Leave a comment here"
                     style="height: 150px"
                     required
@@ -131,7 +146,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                 We don’t believe in overly complicated jargon or charging you
                 for setups you don't actually own. Built completely on
                 Christian values and strict integrity, our commitment
-                guarantees clarity and practical results.[cite: 2]
+                guarantees clarity and practical results.
               </p>
 
               <div class="mb-4 d-flex align-items-start">
@@ -164,10 +179,10 @@ import BaseLayout from '@layouts/BaseLayout.astro';
                 <i class="fa-solid fa-quote-left text-primary me-2"></i>
                 Whether you are a young tech professional trying to land your
                 next break, or an entrepreneur streamlining legacy
-                procedures—we design technology explicitly around your terms.[cite: 2]
+                procedures—we design technology explicitly around your terms.
               </p>
               <p class="mb-0 text-end fw-bold text-primary small mt-2">
-                — William & Alan[cite: 2]
+                — William & Alan
               </p>
             </div>
           </div>
