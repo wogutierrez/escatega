@@ -1,4 +1,6 @@
 import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
 export default defineConfig({
   site: 'https://escatega.com',
