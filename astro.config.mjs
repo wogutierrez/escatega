@@ -2,6 +2,9 @@ import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
+// Define __dirname manually for ESM environments
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
   site: 'https://escatega.com',
   output: 'static',
