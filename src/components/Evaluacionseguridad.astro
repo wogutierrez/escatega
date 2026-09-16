@@ -1,0 +1,239 @@
+---
+// src/components/Evaluacionseguridad.astro
+---
+
+<div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 my-5 bg-white border-top border-4" style="border-top-color: var(--eg-orange, #ff6b35) !important;">
+  
+  <!-- Intro Screen -->
+  <div id="quiz-intro" class="text-center py-3">
+    <span class="badge bg-light text-dark fw-semibold mb-2 px-3 py-2 rounded-pill border">Herramienta Gratuita</span>
+    <h3 class="fw-bold text-dark mb-2">Evaluación General de Autenticación y Seguridad</h3>
+    <p class="text-secondary small mx-auto mb-4" style="max-width: 580px;">
+      Realiza nuestra evaluación de seguridad gratuita de 2 minutos y protege los frutos de tu arduo trabajo. Identifica brechas ocultas en tus hábitos diarios de inicio de sesión antes de que interrumpan tu negocio.
+    </p>
+    <button id="start-btn" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm fw-semibold">
+      Iniciar Evaluación Gratuita →
+    </button>
+  </div>
+
+  <!-- Interactive Quiz Container -->
+  <div id="quiz-box" class="d-none">
+    <!-- Progress Header -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <small id="question-number" class="text-secondary fw-bold">Pregunta 1 de 4</small>
+      <span id="progress-badge" class="badge bg-dark rounded-pill px-3 py-1">25% Completado</span>
+    </div>
+
+    <!-- Bootstrap Progress Bar -->
+    <div class="progress mb-4" style="height: 6px;">
+      <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%; background-color: var(--eg-orange, #ff6b35);" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <!-- Question Container -->
+    <div id="question-card" class="p-3 p-md-4 bg-light rounded-3 border">
+      <h5 id="question-text" class="fw-bold text-dark mb-4"></h5>
+      <div id="options-container" class="d-grid gap-2"></div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="quiz-results" class="d-none text-center py-2">
+    <div id="status-badge" class="badge fs-6 px-4 py-2 mb-3 rounded-pill"></div>
+    <h4 id="score-headline" class="fw-bold mb-2 text-dark"></h4>
+    <div id="score-display" class="display-3 fw-bold my-2 text-dark"></div>
+    <p id="score-message" class="text-secondary lead mx-auto mb-4" style="max-width: 600px;"></p>
+
+    <!-- Essential Business Security Standard Guide CTA -->
+    <div class="p-4 bg-light rounded-4 border text-center text-md-start mx-auto mt-4" style="max-width: 650px;">
+      <h6 class="fw-bold text-dark mb-2">🛡️ Siguiente Paso: Fortalece Tu Base Digital</h6>
+      <p class="small text-secondary mb-3">
+        ¡Felicitaciones por verificar tu puntuación de seguridad hoy! Da el siguiente paso rápido y descarga nuestra <strong>guía gratuita</strong>. Obtendrás pasos sencillos y claros para asegurar tus cuentas de WhatsApp y Gmail para que estén a salvo de hackers y miradas indiscretas. ¡Hacer que la seguridad tecnológica sea fácil y accesible para los propietarios de negocios cotidianos es lo que mejor sabemos hacer en Escatega!
+      </p>
+      
+      <form id="lead-form" action="https://formsubmit.co/ajax/info@escatega.com" method="POST" class="d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-md-start">
+        
+        <!-- Formsubmit Configuration Hidden Fields -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Solicitado - Guía Estándar de Seguridad Empresarial Esencial">
+        <input type="hidden" name="_autoresponse" value="¡Gracias por realizar la Evaluación de Seguridad de Escatega! Aquí tienes tu guía solicitada para mantener tus cuentas seguras.">
+        
+        <!-- User Input -->
+        <input type="email" name="contact" required placeholder="Correo electrónico" class="form-control rounded-pill px-3" />
+        
+        <button type="submit" class="btn btn-primary rounded-pill px-4 text-nowrap fw-semibold">
+          Obtener Guía Gratuita
+        </button>
+      
+      </form>
+      <div id="form-success" class="small text-success mt-3 d-none">
+        ✓ ¡Gracias! La Guía Estándar de Seguridad Empresarial Esencial está en camino.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const startBtn = document.getElementById('start-btn');
+  const quizIntro = document.getElementById('quiz-intro');
+  const quizBox = document.getElementById('quiz-box');
+  const quizResults = document.getElementById('quiz-results');
+
+  const questionNumber = document.getElementById('question-number');
+  const progressBadge = document.getElementById('progress-badge');
+  const progressBar = document.getElementById('progress-bar');
+  const questionText = document.getElementById('question-text');
+  const optionsContainer = document.getElementById('options-container');
+
+  const badgeEl = document.getElementById('status-badge');
+  const headlineEl = document.getElementById('score-headline');
+  const scoreDisplay = document.getElementById('score-display');
+  const messageEl = document.getElementById('score-message');
+
+  const questions = [
+    {
+      q: "1. ¿Cómo gestionas las contraseñas en tus cuentas comerciales y de trabajo?",
+      options: [
+        { text: "Uso un gestor de contraseñas dedicado (ej. Bitwarden) con contraseñas únicas en todas partes", score: 25 },
+        { text: "Las almaceno en el autorrelleno del navegador o en un documento cifrado con algunas variaciones compartidas", score: 10 },
+        { text: "Las memorizo o las anoto, reutilizando 1 o 2 patrones de contraseñas principales en los servicios", score: 0 },
+        { text: "No estoy seguro de cómo se gestionan actualmente las contraseñas o los inicios de sesión compartidos", score: 0 }
+      ]
+    },
+    {
+      q: "2. ¿Está habilitada la Autenticación de Dos Factores (2FA / MFA) en tus inicios de sesión comerciales principales?",
+      options: [
+        { text: "Sí, habilitada en todas partes usando una aplicación Authenticator o claves de seguridad", score: 25 },
+        { text: "Sí, habilitada en cuentas críticas (Correo/Bancos), principalmente mediante códigos SMS", score: 15 },
+        { text: "No, o solo en una plataforma porque resulta engorroso de gestionar", score: 0 },
+        { text: "No estoy seguro si el 2FA está activo o configurado en nuestras cuentas principales", score: 0 }
+      ]
+    },
+    {
+      q: "3. ¿Cómo se manejan las claves de recuperación y las credenciales de respaldo si se pierde un teléfono principal?",
+      options: [
+        { text: "Las claves de recuperación 2FA de emergencia se almacenan fuera de línea en una ubicación de respaldo segura", score: 25 },
+        { text: "Existen en notas digitales o capturas de pantalla, pero no se respaldan sistemáticamente", score: 10 },
+        { text: "No hay un plan de recuperación documentado; perder el dispositivo principal significa quedarse bloqueado", score: 0 },
+        { text: "No estoy seguro de dónde se guardan nuestros códigos de recuperación de cuenta o detalles de respaldo", score: 0 }
+      ]
+    },
+    {
+      q: "4. ¿Cómo manejas el acceso a las cuentas cuando cambian los empleados, socios o dispositivos?",
+      options: [
+        { text: "El acceso se gestiona individualmente, se revoca inmediatamente al finalizar la relación laboral y se audita", score: 25 },
+        { text: "Cambiamos las contraseñas manualmente cuando alguien se va, pero existen inicios de sesión compartidos", score: 10 },
+        { text: "Las contraseñas compartidas permanecen activas mucho tiempo después de que los miembros del equipo o colaboradores se van", score: 0 },
+        { text: "No estoy seguro de quién posee actualmente credenciales de inicio de sesión activas para nuestras herramientas", score: 0 }
+      ]
+    }
+  ];
+
+  let currentQ = 0;
+  let totalScore = 0;
+
+  startBtn?.addEventListener('click', () => {
+    quizIntro?.classList.add('d-none');
+    quizBox?.classList.remove('d-none');
+    renderQuestion();
+  });
+
+  function renderQuestion() {
+    if (currentQ < questions.length) {
+      const qData = questions[currentQ];
+      const progressPercent = Math.round(((currentQ + 1) / questions.length) * 100);
+
+      if (questionNumber) questionNumber.textContent = `Pregunta ${currentQ + 1} de ${questions.length}`;
+      if (progressBadge) progressBadge.textContent = `${progressPercent}% Completado`;
+      if (progressBar) {
+        progressBar.style.width = `${progressPercent}%`;
+        progressBar.setAttribute('aria-valuenow', progressPercent.toString());
+      }
+      if (questionText) questionText.textContent = qData.q;
+
+      if (optionsContainer) {
+        optionsContainer.innerHTML = qData.options.map(opt => `
+          <button class="btn btn-outline-dark text-start py-3 px-3 option-btn fw-normal" data-score="${opt.score}">
+            ${opt.text}
+          </button>
+        `).join('');
+
+        document.querySelectorAll('.option-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const target = e.currentTarget as HTMLElement;
+            const score = parseInt(target.getAttribute('data-score') || '0', 10);
+            totalScore += score;
+            currentQ++;
+            renderQuestion();
+          });
+        });
+      }
+    } else {
+      renderResults();
+    }
+  }
+
+  function renderResults() {
+    quizBox?.classList.add('d-none');
+    quizResults?.classList.remove('d-none');
+
+    let status = '';
+    let badgeClass = '';
+    let headline = '';
+    let message = '';
+
+    if (totalScore >= 80) {
+      status = '🟢 Riesgo Bajo (Seguridad Sólida)';
+      badgeClass = 'bg-success text-white';
+      headline = 'Protección Digital Sólida';
+      message = '¡Tu negocio tiene una base digital sólida! Evitas las principales trampas de autenticación que toman desprevenidos a la mayoría de los pequeños empresarios.';
+    } else if (totalScore >= 50) {
+      status = '🟡 Riesgo Moderado (Brechas Presentes)';
+      badgeClass = 'bg-warning text-dark';
+      headline = 'Vulnerabilidades Potenciales Identificadas';
+      message = 'Tienes protecciones básicas, pero un patrón de contraseña comprometido o un teléfono perdido podría interrumpir tus operaciones sin previo aviso.';
+    } else {
+      status = '🔴 Riesgo Alto (Vulnerable)';
+      badgeClass = 'bg-danger text-white';
+      headline = 'Urgente: Alta Exposición al Riesgo';
+      message = 'Tu negocio opera a un riesgo muy alto, dependiendo de hábitos o accesos no verificados que las herramientas de scripts automatizados pueden explotar en segundos. Sin cambios, estás en camino de convertirte en la próxima historia triste. No permitas que eso suceda.';
+    }
+
+    if (badgeEl) {
+      badgeEl.className = `badge fs-6 px-4 py-2 mb-3 rounded-pill ${badgeClass}`;
+      badgeEl.textContent = status;
+    }
+    if (headlineEl) headlineEl.textContent = headline;
+    if (scoreDisplay) scoreDisplay.textContent = `${totalScore} / 100`;
+    if (messageEl) messageEl.textContent = message;
+  }
+
+  const leadForm = document.getElementById('lead-form') as HTMLFormElement;
+  const formSuccess = document.getElementById('form-success');
+
+  leadForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(leadForm);
+
+    try {
+      const response = await fetch(leadForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        leadForm.classList.add('d-none');
+        formSuccess?.classList.remove('d-none');
+      } else {
+        alert('Hubo un problema al enviar tu solicitud. Por favor, inténtalo de nuevo.');
+      }
+    } catch (error) {
+      console.error('Error de envío:', error);
+      leadForm.classList.add('d-none');
+      formSuccess?.classList.remove('d-none');
+    }
+  });
+</script>
