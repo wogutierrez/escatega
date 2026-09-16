@@ -9,5 +9,15 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false // Clean URLs: English at root /, Spanish at /es/
     }
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@layouts': path.resolve(__dirname, './src/layouts'),
+        '@components': path.resolve(__dirname, './src/components'),
+        '@i18n': path.resolve(__dirname, './src/i18n')
+      }
+    }
   }
 });
