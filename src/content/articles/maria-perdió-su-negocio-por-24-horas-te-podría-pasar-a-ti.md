@@ -49,7 +49,7 @@ _Foto: Darse cuenta de que la cuenta principal de tu negocio está bloqueada tom
 
 **_Realiza nuestra evaluación de seguridad gratuita de 2 minutos e identifica brechas ocultas antes de que interrumpan tu negocio._**
 
-[**Iniciar evaluación de seguridad gratuita**](https://www.google.com/search?q=/security-assessment)
+[**Iniciar evaluación de seguridad gratuita**](/EvaluacionSeguridad)
 
 Cuando Maria intentó recuperar el acceso a su cuenta de Google, se encontró con un muro infranqueable. Los hackers ya habían cambiado su número de teléfono de recuperación y sus datos de respaldo. Probarle a una plataforma tecnológica automatizada que eres el verdadero propietario cuando otra persona tiene las llaves de recuperación es un proceso lento y doloroso.
 
@@ -75,4 +75,4 @@ En Escatega, te ayudamos a configurar bóvedas de contraseñas simples y confiab
 
 ¿No estás seguro de que esto te pueda pasar a ti? No nos creas solo a nosotros: prueba tu configuración tú mismo.
 
-[**Iniciar evaluación de seguridad gratuita**](https://www.google.com/search?q=/security-assessment)
+[**Iniciar evaluación de seguridad gratuita**](/EvaluacionSeguridad)
